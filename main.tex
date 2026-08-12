@@ -1,7 +1,6 @@
 \documentclass{article}
 
 \usepackage{xiv}
-
 \usepackage[utf8]{inputenc} % allow utf-8 input
 \usepackage[T1]{fontenc}    % use 8-bit T1 fonts
 \usepackage{hyperref}       % hyperlinks
@@ -25,9 +24,6 @@
 \usepackage{setspace}       % more control of document spacing
 \setstretch{1.2}
 
-% for leaving comments in the paper
-% feel free to add more entries with own colors:
-% https://www.overleaf.com/learn/latex/Using_colours_in_LaTeX
 \usepackage[dvipsnames]{xcolor}
 \usepackage{soul}
 \DeclareRobustCommand{\mariecurie}[1]{{\begingroup\sethlcolor{Aquamarine}\hl{[m: #1]}\endgroup}}
@@ -37,126 +33,18 @@
 \usepackage[backend=biber,style=nature,sorting=none]{biblatex}
 \addbibresource{refs.bib}
 
-\usepackage{lipsum}         % delete when real text is available
+\title{Computational classification of SOD2 protein in coral and symbiotic algae from public genomic and transcriptomic data}
 
-\title{A template for the \emph{arxiv} and \emph{biorxiv} style}
-
-\author{Anna Hippocampus\inst{1} \and
-Elefant Striatum\inst{2,*}}
-
-\institute{Department of Computer Science, Rice University \and
-Department of Electrical and Computer Engineering, Rice University \\
-\textit{* Correspondence to:} \email{\{striatum\}@rice.edu}}
-
-% uncomment to add other headers as wanted
-%\renewcommand{\headeright}{Technical Report}
-%\renewcommand{\undertitle}{Technical Report}
-\renewcommand{\shorttitle}{\textit{arXiv} Template}
-
-%%% Add PDF metadata to help others organize their library
-%%% Once the PDF is generated, you can check the metadata with
-%%% $ pdfinfo template.pdf
-\hypersetup{
-pdftitle={A template for the arxiv style},
-pdfauthor={Anna Hippocampus, Elefant SStriatum},
-pdfkeywords={First keyword, Second keyword, More},
-}
+\author{Benjie Chen \\ \email{benjie@alum.mit.edu}}
+\institute{}
 
 \begin{document}
 \maketitle
 
-\begin{abstract}
-	\lipsum[1]
-\end{abstract}
-
-
-% keywords can be removed
-% \keywords{First keyword \and Second keyword \and More}
-
-
-\section{Introduction}
-\lipsum[2]
-\lipsum[3]
-
-
-\section{Headings: first level}
-\label{sec:headings}
-
-\lipsum[4] See Section \ref{sec:headings}.
-
-\subsection{Headings: second level}
-\lipsum[5]
-\begin{equation}
-	\xi _{ij}(t)=P(x_{t}=i,x_{t+1}=j|y,v,w;\theta)= {\frac {\alpha _{i}(t)a^{w_t}_{ij}\beta _{j}(t+1)b^{v_{t+1}}_{j}(y_{t+1})}{\sum _{i=1}^{N} \sum _{j=1}^{N} \alpha _{i}(t)a^{w_t}_{ij}\beta _{j}(t+1)b^{v_{t+1}}_{j}(y_{t+1})}}
-\end{equation}
-
-\subsubsection{Headings: third level}
-\lipsum[6]
-
-\paragraph{Paragraph}
-\lipsum[7]
-
-
-
-\section{Examples of citations, figures, tables, references}
-\label{sec:others}
-
-\subsection{Citations}
-Citations use \verb+biblatex+. The documentation may be found at
-\begin{center}
-	\url{https://ctan.org/pkg/biblatex}
-\end{center}
-
-We can try to cite \cite{hadash2018estimate,kour2014fast,kour2014real}.
-
-\subsection{Figures}
-\lipsum[10]
-See Figure \ref{fig:fig1}. Here is how you add footnotes. \footnote{Sample of the first footnote.}
-\lipsum[11]
-
-\begin{figure}
-	\centering
-	\fbox{\rule[-.5cm]{4cm}{4cm} \rule[-.5cm]{4cm}{0cm}}
-	\caption{Sample figure caption.}
-	\label{fig:fig1}
-\end{figure}
-
-\subsection{Tables}
-See awesome Table~\ref{tab:table}.
-
-The documentation for \verb+booktabs+ (`Publication quality tables in LaTeX') is available from:
-\begin{center}
-	\url{https://www.ctan.org/pkg/booktabs}
-\end{center}
-
-
-\begin{table}
-	\caption{Sample table title}
-	\centering
-	\begin{tabular}{lll}
-		\toprule
-		\multicolumn{2}{c}{Part}                   \\
-		\cmidrule(r){1-2}
-		Name     & Description     & Size ($\mu$m) \\
-		\midrule
-		Dendrite & Input terminal  & $\sim$100     \\
-		Axon     & Output terminal & $\sim$10      \\
-		Soma     & Cell body       & up to $10^6$  \\
-		\bottomrule
-	\end{tabular}
-	\label{tab:table}
-\end{table}
-
-\subsection{Lists}
-\begin{itemize}
-	\item Lorem ipsum dolor sit amet
-	\item consectetur adipiscing elit.
-	\item Aliquam dignissim blandit est, in dictum tortor gravida eget. In ac rutrum magna.
-\end{itemize}
-
+\input{abstract}
+\input{intro}
 
 \clearpage
 \printbibliography
-
 
 \end{document}

@@ -1,33 +1,19 @@
 
 \section{Introduction}
 
-\begin{figure}
-	\centering
-	\fbox{\rule[-.5cm]{4cm}{4cm} \rule[-.5cm]{4cm}{0cm}}
-	\caption{Sample figure caption.}
-	\label{fig:fig1}
-\end{figure}
+We found all K04564 matched gene model derived, HMM searched, or RNAseq derived
+sequences, filtered them through a set of rules that checked key residues, then
+looked upstream for possible M / start sites and ran the sequences through
+DeepLoc. For SP and mTP, we limited M to XXX upstream of PF00081. For SP\_cTP,
+we limited M to XXX upstream of PF00081. It’s possible there’s a different
+architecture with an M that’s not in these ranges, this paper does not address
+that.
 
-\begin{table}
-	\caption{Sample table title}
-	\centering
-	\begin{tabular}{lll}
-		\toprule
-		\multicolumn{2}{c}{Part}                   \\
-		\cmidrule(r){1-2}
-		Name     & Description     & Size ($\mu$m) \\
-		\midrule
-		Dendrite & Input terminal  & $\sim$100     \\
-		Axon     & Output terminal & $\sim$10      \\
-		Soma     & Cell body       & up to $10^6$  \\
-		\bottomrule
-	\end{tabular}
-	\label{tab:table}
-\end{table}
+Prev work
 
-\begin{itemize}
-	\item Lorem ipsum dolor sit amet
-	\item consectetur adipiscing elit.
-	\item Aliquam dignissim blandit est, in dictum tortor gravida eget. In ac rutrum magna.
-\end{itemize}
+Old alignment work https://pmc.ncbi.nlm.nih.gov/articles/PMC4416395/
+
+Mn supplementation may be good https://www.nature.com/articles/s41598-018-34994-4
+
+Mn dependence https://journals.plos.org/climate/article?id=10.1371/journal.pclm.0000897
 

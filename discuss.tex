@@ -1,0 +1,129 @@
+
+\section{Discussion}
+
+\begin{figure}
+	\centering
+	\fbox{\rule[-.5cm]{4cm}{4cm} \rule[-.5cm]{4cm}{0cm}}
+	\caption{Sample figure caption.}
+	\label{fig:fig1}
+\end{figure}
+
+\begin{table}
+	\caption{Sample table title}
+	\centering
+	\begin{tabular}{lll}
+		\toprule
+		\multicolumn{2}{c}{Part}                   \\
+		\cmidrule(r){1-2}
+		Name     & Description     & Size ($\mu$m) \\
+		\midrule
+		Dendrite & Input terminal  & $\sim$100     \\
+		Axon     & Output terminal & $\sim$10      \\
+		Soma     & Cell body       & up to $10^6$  \\
+		\bottomrule
+	\end{tabular}
+	\label{tab:table}
+\end{table}
+
+\begin{itemize}
+	\item Lorem ipsum dolor sit amet
+	\item consectetur adipiscing elit.
+	\item Aliquam dignissim blandit est, in dictum tortor gravida eget. In ac rutrum magna.
+\end{itemize}
+
+
+** In silico is not the same as biological validation; Lack of wet lab evidence is a weakness of this paper
+
+Does RNA seq data present evidence for expression? Weakness of that argument.
+But, single time point, single stresser.
+
+Uncertain if sp_algae is expressed or where it may go to.
+
+** Unknown metal specificity
+
+Metal specificity is a spectrum, not a binary: there are Mn-specific,
+Fe-specific, and cambialistic SODs that work with either ion, and the modern
+distribution is polyphyletic. Specificity is tuned by the redox potential of
+the active-site metal, and several non-conserved second-sphere residues
+contribute to that tuning; consequently prediction methods based solely on
+primary sequence have not given strong predictive values. There are documented
+sequence/metal mismatches — e.g. the Sinorhizobium meliloti SOD has an
+iron-type sequence but preferentially incorporates Mn in vivo. The mechanistic
+anchor most methods lean on is the position of the solvent-coordinating
+glutamine (α2-helix in typical FeSODs vs the C-terminal end of β2 in most
+MnSODs), but site-directed swaps show this is not the only determinant of metal
+selection. There is a model - SODa - but not super predictive. The lineage of
+this work: Parker & Blake (1988) first showed Fe- and Mn-SODs can be
+distinguished by primary structure; Wintjens et al. (2004, JBC) and Wintjens,
+Gilis & Rooman (2008, Proteins) formalized the fingerprints. A simpler,
+hand-usable heuristic also exists — cyanobacterial SODs can be split by a
+three-trait key, e.g. a signature where FeSOD's F184/A188/Q189…T280…F/Y303 is
+replaced in MnSOD by R184/G188/G189…G280…W303 (positions are
+cyanobacteria-specific).
+
+The metal is set by the active-site environment of the protein, and
+localization is set by the presequence — two independent properties.
+Localization cannot pin the functional metal at all in the ambiguous cases.
+
+** Localization
+
+We checked how DeepLoc and SignalIP would call alveolata proteins that
+Should be mitochondria, using K00235 as control: DeepLoc detected mTP.  Should
+be secreted, using K09490 (ER chaperone) as control: sequences from various
+species fall into two groups, one had SP+ER DeepLoc call, the other
+NLS+Cytoplasm. Stripping out the SP, DeepLoc does not by default report Plastid
+but reports ER and Cytoplasm as localization, and NLS, NES, and SP as signals.
+Should be plastid, using K02639 (ferredoxin) as control: DeepLoc detected Golgi
+as localization, but SP was only called for some sequences not all even though
+the leader sequence appears to be highly conserved. Stripping out the SP,
+DeepLoc reports Plastid as the localization for the truncated protein. n is
+very small here, as many of the sequences are essentially the same 3 protein
+sequences. To make this publishable we should look for different plastid
+targeted sequences and hope to observe the same behavior from DeepLoc.
+
+** HMM profiles pan metagenomic or family specific
+
+Because K04564 encapsulates the entire Fe-Mn SOD family across all domains of
+life (Bacteria, Archaea, and Eukaryota) [Source: KEGG Orthology K04564], a high
+bit-score threshold (e.g., >150) would optimize precision for eukaryotic
+sequences but drastically collapse the recall rate for highly divergent
+bacterial or archaeal orthologs. The optimization algorithm drove the threshold
+down to 41.53 to maintain functional annotation capacity across highly diverse
+phyla.
+
+In an ancient, universally distributed enzyme like MnSOD, large stretches of
+the ~200 amino acid sequence (such as surface-exposed loop regions and variable
+structural linkers) exhibit extreme sequence divergence across species. In the
+pHMM, these hypervariable positions have high entropy, dropping their bit-score
+contribution to near zero. Only the rigid structural core—specifically the
+N-terminal alpha-hairpin domain, the C-terminal alpha/beta domain, and the 4
+metal-coordinating catalytic nodes (His-50, His-98, Asp-183,
+His-187)—contribute highly positive bits. A truly orthologous but highly
+divergent sequence will only accumulate score points at these narrow, invariant
+motifs, resulting in a low overall sequence bit score that still represents a
+true positive.
+
+E.g. even in Alveolata, can have quite different sequences, so profiles may
+need different thresholds. Hard to quantify though if they are differentiating.
+
+Using HMM profiles with rules to check for leaders and key residues. Profiles
+give you a fast first screen, and then the key residues make sure they are
+catalytically functional. Leaders verify full length proteins. Mature HMM gives
+you a quick way to see what class a sequence may be w/o detecting a leader
+which could be challenging esp in algae.
+
+** Considerations for RNAseq analysis
+
+In addition to more specific HMM profiles to match to, there is the issue of
+sequencing holobiont and then doing capture or removal
+
+** Continuing work of curating proteins
+
+n is small, as we get more data, the profiles get better and new profiles
+likely emerge. We are also interested in taking the approach to other proteins
+and protein families.
+
+Gene model is difficult, needs more RNAseq data, AUGUSTUS modifications do not
+work. HMM of the mature protein is useful for global HMM search.
+
+

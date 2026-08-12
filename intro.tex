@@ -1,21 +1,32 @@
 
 \section*{Introduction}
 
-We found all K04564 matched gene model derived, HMM searched, or RNAseq derived
-sequences, filtered them through a set of rules that checked key residues, then
-looked upstream for possible M / start sites and ran the sequences through
-DeepLoc. For SP and mTP, we limited M to XXX upstream of PF00081. For SP\_cTP,
-we limited M to XXX upstream of PF00081. It’s possible there’s a different
-architecture with an M that’s not in these ranges, this paper does not address
-that.
+SOD proteins detoxify reactive oxgen species. Three forms, Cu/Zn, Mn, and Fe,
+with the last two exhibit high sequence and structural similiarty, and named
+SOD2 (kegg). Existing literature is vague about the types of SOD2 proteins in
+corals and their symbiotic algae. While all agree on the presence of
+mitocondrial targeting MnSOD, other forms of SOD2 in coral and symbiotic algae
+are rarely discussed. Indeed, most transcriptomic analyses depend on UniProt or
+NCBI BLAST results, or a HMM match against K04564.
 
-Old alignment work https://pmc.ncbi.nlm.nih.gov/articles/PMC4416395/
-
+Secreted SOD2 work:
 Old secret protein work, but only on coral https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0012508
-
 Mt and secreted in hydra vulgaris https://www.sciencedirect.com/science/article/abs/pii/S0378111906005725?via%3Dihub
 
-Mn supplementation may be good https://www.nature.com/articles/s41598-018-34994-4
+Old alignment work - Krueger et al
+Discusses Mt/S and Chloroplast versions in algae, but they took annotations
+from published sources and presented alignments assuming those annotations were
+correct. They noticed bigger differences between their MnSOD3 group with other
+groups. This is because their MnSOD3 is in fact a SP targeting one, while their
+MnSOD1 and MnSOD2 groups are actually our sp_cpt groups.
 
-Mn dependence https://journals.plos.org/climate/article?id=10.1371/journal.pclm.0000897
-
+This work here looked at X genomes and Y transcriptomes to classify SOD2
+proteins. When protein sequences are available, they are used. In all cases,
+6-frame translations of the genome sequences were searched exhaustively against
+KO database to identify likely proteins. Together the curated protein sequences
+and HMM searched protein sequences form the search database. We then started
+with K04564 match regions in these proteins, filtered away those w/o key
+residues that are necessary for SOD2 to form a metal binding pocket. For each
+remaining sequence, we searched for possible leader sequences up to 75 AAs
+upstream of the start of the PF00081, using DeepLoc. The sequences were then
+grouped by leader pattern, within coral hosts and within algae, separately.

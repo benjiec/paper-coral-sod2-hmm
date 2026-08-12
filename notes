@@ -1,0 +1,157 @@
+In silico Classification of Manganese/Iron Superoxide Dismutase Protein
+Sequences across Coral Host and Symbiont Species
+
+Abstract
+
+SOD2, or Mn/FeSOD, is important blah blah. Across XXX species of corals and YYY
+species of symbiotic algae, Mn/FeSOD like protein sequences can be categorized
+into four categories and an additional, putative, weakly supported fifth
+category. This paper outlines genomic and transcriptomic evidence (using
+submitted and public datasets) for these categories, presents HMM profiles for
+each category, and reviews functional studies for each type of proteins in
+existing literature.
+
+Introduction
+
+We found all K04564 matched gene model derived, HMM searched, or RNAseq derived
+sequences, filtered them through a set of rules that checked key residues, then
+looked upstream for possible M / start sites and ran the sequences through
+DeepLoc. For SP and mTP, we limited M to XXX upstream of PF00081. For SP_cTP,
+we limited M to XXX upstream of PF00081. It’s possible there’s a different
+architecture with an M that’s not in these ranges, this paper does not address
+that.
+
+Results
+
+** Four groups with clean separation, with mature sequence predictive of leader
+
+IQ tree of mature enzyme sequence (3 AA of PF00081 to 100 AA of PF02777) forms
+4 clades, with sp_cnidaria being paraphyletic, the rest are monophyletic, hard
+to assign metals from this as sequence similarity may not correspond to metal
+preference. This establishes that
+
+The mature enzyme sequence, w/o leader, form distinctive clades that do not
+overlap. Furthermore the HMM threshold scores for mature enzyme group profiles
+show a large drop with F=1 (i.e. no FPs or FNs) at very clear boundaries
+
+Mature enzyme sequence correlates with leader, and appear to also with target compartment
+
+Generated 202 K04564 matches from our genomic and RNAse datasets, reduced down
+to 114 unique mature enzyme sequences that possess all key residues and spans
+from 3rd AA of PF00081 to 100 AA of PF02777, so removing any partial matches
+due to bad genome assemblies or truncated gene models.  
+
+this is all_k04564_matches_mature_region.faa and the .tsv file
+
+12 out of 144 fell below the above mature profile thresholds, rest belong to one of the 4 clades
+
+4 are similar to or is CAE7459428.1 and is just below the threshold for
+sp_ctp_algae; CAE7459428.1 would have been a hit for sp_ctp_algae if its SP
+signal was stronger.
+
+8/144, or 6%, unknown
+
+** SOD2 like sequences split into two distinct groups in coral hosts, targeting
+mitochondria and the secretary pathway, with high concordance and evolutionary
+lineage in the mature protein sequence Leader evidence across species from
+genomic and transcriptomic datasets
+
+Mature protein sequence alignment, concordance
+
+Mature protein sequence evolutionary lineage
+
+Likely function and regulatory mechanism - do they differ between the two classes
+
+Final HMM profile for each group, with threshold scores for full protein and
+probably mature proteins, and rules
+
+** A secreted SOD2 may be unique to coral hosts
+
+Paraphyletic, evolutionary lineage tree forms clusters by type: sea anemone,
+stony, soft. 
+
+This one may be non-essential and went through some gene loss? Or the genome
+assemblies are incomplete.
+
+Transcript counts from one RNAseq experiment
+
+Missing from acropora genomes, which explains why a. tenuis transcripts does
+not have such a sequence.
+
+** SOD2 like sequence targeting chloroplast is present across many symbiotic algae
+and related species
+
+SP-cTP SOD2 architecture, evidence in genomic and transcriptomic datasets
+
+See method section for algae sequence discovery in genome, and also transcriptome datasets
+
+Mature protein sequence alignment, concordance
+
+Mature protein sequence evolutionary lineage
+
+Likely function and regulatory mechanism
+
+Final HMM profile for each group, with threshold scores for full protein and probably mature proteins, and rules
+
+c. goreaui should have had one, but in CAL1167723.1, PF00081 did not match well, if we define PF00081 from position 11 not position 3, may have been ok
+
+Should be SP-cPT? DeepLoc reports Golgi as targets for both but do not report SP for them, SignalP reports weak SP, but sequence kind of matches
+BGNK01003376.1_K04564_a3776c6c u60
+OZ257276.1_K04564_ace37290 u60 
+
+Should be SP? These are the same sequence. DeepLoc thinks they are not SP and for plastid. Mature sequence definitely matches better for SP_algae but is below threshold.
+CAL1167723.1_with_leader_u21_PF00081_M
+evm.model.scf7180000356577.1_with_leader_u21_PF00081_M
+  Issue is that we are missing 11 bps of PF00081
+
+** Secreted SOD2 from symbiotic algae with weak evidence for expression
+
+Evidence for secreted SOD2 in genomic and transcriptomic datasets, including
+leaders. Transcript counts from one RNAseq experiment suggest very weak if any
+expression.
+
+Mature protein sequence alignment, concordance
+
+Mature protein sequence evolutionary lineage
+
+c. goreaui should have had one, but in CAL1167723.1, PF00081 did not match
+well, if we define PF00081 from position 11 not position 3, may have been ok
+
+Final HMM profile for each group, with threshold scores for full protein and
+probably mature proteins, and rules, and how it may be confused with other
+classes
+
+Discussion
+
+** In silico is not the same as biological validation; Lack of wet lab evidence is a weakness of this paper
+
+Does RNA seq data present evidence for expression? Weakness of that argument.
+But, single time point, single stresser.
+
+Uncertain if sp_algae is expressed or where it may go to.
+
+** HMM profiles pan metagenomic or family specific
+
+E.g. even in Alveolata, can have quite different sequences, so profiles may
+need different thresholds. Hard to quantify though if they are differentiating.
+
+Using HMM profiles with rules to check for leaders and key residues. Profiles
+give you a fast first screen, and then the key residues make sure they are
+catalytically functional. Leaders verify full length proteins. Mature HMM gives
+you a quick way to see what class a sequence may be w/o detecting a leader
+which could be challenging esp in algae.
+
+** Considerations for RNAseq analysis
+
+In addition to more specific HMM profiles to match to, there is the issue of
+sequencing holobiont and then doing capture or removal
+
+** Continuing work of curating proteins
+
+n is small, as we get more data, the profiles get better and new profiles
+likely emerge. We are also interested in taking the approach to other proteins
+and protein families.
+
+Gene model is difficult, needs more RNAseq data, AUGUSTUS modifications do not
+work. HMM of the mature protein is useful for global HMM search.
+

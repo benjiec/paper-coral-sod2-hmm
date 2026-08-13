@@ -1,102 +1,125 @@
 
 \section*{Results}
 
-** Four groups with clean separation, with mature sequence predictive of leader
+Four classes of SOD2 proteins, termed mt\_cnidaria, sp\_cnidaria,
+sp\_ctp\_algae, and sp\_algae, are evident from the candidate sequences.
+Figure~\ref{fig:taxa} shows a breakdown of the number of proteins per class, by
+taxonomy. Transcriptomic data are grouped in the first columns on the left.
 
-IQ tree of mature enzyme sequence (3 AA of PF00081 to 100 AA of PF02777) forms
-4 clades, with sp_cnidaria being paraphyletic, the rest are monophyletic, hard
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{summary_taxa.png}
+  \caption{Sample figure caption.}
+  \label{fig:taxa}
+\end{figure}
+
+Talk about transcriptomic data.
+
+Talk about mature sequence.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{summary_tree.png}
+  \caption{Sample figure caption.}
+  \label{fig:tree}
+\end{figure}
+
+Figure~\ref{fig:tree}
+
+IQtree of mature enzyme sequence (3 AA of PF00081 to 100 AA of PF02777) forms
+4 clades, with sp\_cnidaria being paraphyletic, the rest are monophyletic, hard
 to assign metals from this as sequence similarity may not correspond to metal
 preference. This establishes that
 
-The mature enzyme sequence, w/o leader, form distinctive clades that do not
-overlap. Furthermore the HMM threshold scores for mature enzyme group profiles
-show a large drop with F=1 (i.e. no FPs or FNs) at very clear boundaries
 
-Mature enzyme sequence correlates with leader, and appear to also with target compartment
+\subsection*{A mitochondrial MnSOD exists across all corals}
 
-Generated 202 K04564 matches from our genomic and RNAse datasets, reduced down
-to 114 unique mature enzyme sequences that possess all key residues and spans
-from 3rd AA of PF00081 to 100 AA of PF02777, so removing any partial matches
-due to bad genome assemblies or truncated gene models.  
+In coral hosts, the mitochondrial version of SOD2 includes of a mitochondrial
+transit peptide (mTP) XXX amino acids upstream of N-terminal PF00081 domain,
+and the secreted version includes a signal peptide (SP) XXX amino acids
+upstream of PF00081. These two classes are termed mt\_cnidaria and sp\_cnidaria,
+respectively.
 
-this is all_k04564_matches_mature_region.faa and the .tsv file
+High mature sequence similiarty. HMM scores. Very likely Mn.
 
-12 out of 144 fell below the above mature profile thresholds, rest belong to one of the 4 clades
+What about Mt? Likely different across species? Or also conserved?
 
-4 are similar to or is CAE7459428.1 and is just below the threshold for
-sp_ctp_algae; CAE7459428.1 would have been a hit for sp_ctp_algae if its SP
-signal was stronger.
 
-8/144, or 6%, unknown
-
-** SOD2 like sequences split into two distinct groups in coral hosts, targeting
-mitochondria and the secretary pathway, with high concordance and evolutionary
-lineage in the mature protein sequence Leader evidence across species from
-genomic and transcriptomic datasets
-
-Mature protein sequence alignment, concordance
-
-Mature protein sequence evolutionary lineage
-
-Likely function and regulatory mechanism - do they differ between the two classes
-
-Final HMM profile for each group, with threshold scores for full protein and
-probably mature proteins, and rules
-
-** A secreted SOD2 may be unique to coral hosts
+\subsection*{Evidence of a screted SOD2, with unknown metal preference, shown
+in the genome and transcriptome of some coral species}
 
 Paraphyletic, evolutionary lineage tree forms clusters by type: sea anemone,
-stony, soft. 
-
-This one may be non-essential and went through some gene loss? Or the genome
-assemblies are incomplete.
+stony, soft.
 
 Transcript counts from one RNAseq experiment
 
 Missing from acropora genomes, which explains why a. tenuis transcripts does
 not have such a sequence.
 
-** SOD2 like sequence targeting chloroplast is present across many symbiotic algae
-and related species
+Just one study. But uncertain if it's linked to this.
 
-SP-cTP SOD2 architecture, evidence in genomic and transcriptomic datasets
 
-See method section for algae sequence discovery in genome, and also transcriptome datasets
+\subsection*{A likely chloroplast targeting SOD2 protein, with a bipartite
+leader, is conserved across multiple species of symbiodinium}
 
-Mature protein sequence alignment, concordance
+In algae, the chloroplast targeting version of SOD2 includes a bipartite
+leader. DeepLoc 2.1 consistently finds a SP leader XXX amino acids upstream of
+PF00081, and also consistently categorizes the SP-cleaved copies of the
+proteins as localized to plastid. DeepLoc employs different mechanisms (or
+"heads" in their ML architecture) for classifying localization and finding
+leader sequences, and was not trained on symbiodiniums. The SP cleavage point
+sits XXX amino acids upstream of PF00081, suggesting a bipartite leader
+architecture of XXX AAs of SP, YYY AAs of cTP, then PF00081. This class is
+termed sp\_ctp\_algae, in figures and tables in this paper.
 
-Mature protein sequence evolutionary lineage
+Separately, a secreted version of SOD2 with only a SP, XXX amino acids upstream
+of PF00081, also exist in algae. This class is termed sp\_algae.
 
-Likely function and regulatory mechanism
 
-Final HMM profile for each group, with threshold scores for full protein and probably mature proteins, and rules
+\subsection*{A fourth class of SOD2, with distinct mature protein sequence, may
+exist in symbiodinium, with weak expression evidence}
 
-c. goreaui should have had one, but in CAL1167723.1, PF00081 did not match well, if we define PF00081 from position 11 not position 3, may have been ok
+May be secreted? Transcript counts from one RNAseq experiment suggest very weak
+if any expression.
 
-Should be SP-cPT? DeepLoc reports Golgi as targets for both but do not report SP for them, SignalP reports weak SP, but sequence kind of matches
-BGNK01003376.1_K04564_a3776c6c u60
-OZ257276.1_K04564_ace37290 u60 
 
-Should be SP? These are the same sequence. DeepLoc thinks they are not SP and for plastid. Mature sequence definitely matches better for SP_algae but is below threshold.
-CAL1167723.1_with_leader_u21_PF00081_M
-evm.model.scf7180000356577.1_with_leader_u21_PF00081_M
-  Issue is that we are missing 11 bps of PF00081
+\subsection*{The mature protein sequences of the four classes are cleanly
+distinguishable from each other and covers almost all of detectable K04564 sequences}
 
-** Secreted SOD2 from symbiotic algae with weak evidence for expression
+The mature enzyme sequence, w/o leader, form distinctive clades that do not
+overlap. Furthermore the HMM threshold scores for mature enzyme group profiles
+show a large drop with F=1 (i.e. no FPs or FNs) at very clear boundaries.
+Mature enzyme sequence correlates with leader, and appear to also with target
+compartment
 
-Evidence for secreted SOD2 in genomic and transcriptomic datasets, including
-leaders. Transcript counts from one RNAseq experiment suggest very weak if any
-expression.
+Generated 202 K04564 matches from our genomic and RNAse datasets, reduced down
+to 114 unique mature enzyme sequences that possess all key residues and spans
+from 3rd AA of PF00081 to 100 AA of PF02777, so removing any partial matches
+due to bad genome assemblies or truncated gene models.  
 
-Mature protein sequence alignment, concordance
+this is all\_k04564\_matches\_mature\_region.faa and the .tsv file
 
-Mature protein sequence evolutionary lineage
+12 out of 144 fell below the above mature profile thresholds, rest belong to one of the 4 clades
+
+4 are similar to or is CAE7459428.1 and is just below the threshold for
+sp\_ctp\_algae; CAE7459428.1 would have been a hit for sp\_ctp\_algae if its SP
+signal was stronger.
+
+8/144, or 6%, unknown
+
+Final HMM profile for each group, with threshold scores for full protein and
+probably mature proteins, and rules
 
 c. goreaui should have had one, but in CAL1167723.1, PF00081 did not match
 well, if we define PF00081 from position 11 not position 3, may have been ok
 
-Final HMM profile for each group, with threshold scores for full protein and
-probably mature proteins, and rules, and how it may be confused with other
-classes
+Mature HMM vs leader
 
+Should be SP-cPT? DeepLoc reports Golgi as targets for both but do not report SP for them, SignalP reports weak SP, but sequence kind of matches
+BGNK01003376.1\_K04564\_a3776c6c u60
+OZ257276.1\_K04564\_ace37290 u60 
 
+Should be SP? These are the same sequence. DeepLoc thinks they are not SP and for plastid. Mature sequence definitely matches better for SP\_algae but is below threshold.
+CAL1167723.1\_with\_leader\_u21\_PF00081\_M
+evm.model.scf7180000356577.1\_with\_leader\_u21\_PF00081\_M
+  Issue is that we are missing 11 bps of PF00081

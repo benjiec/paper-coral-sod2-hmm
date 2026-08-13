@@ -1,24 +1,37 @@
 
 \section*{Introduction}
 
-SOD proteins detoxify reactive oxgen species. Three forms, Cu/Zn, Mn, and Fe,
-with the last two exhibit high sequence and structural similiarty, and named
-SOD2 (kegg). Existing literature is vague about the types of SOD2 proteins in
-corals and their symbiotic algae. While all agree on the presence of
-mitocondrial targeting MnSOD, other forms of SOD2 in coral and symbiotic algae
-are rarely discussed. Indeed, most transcriptomic analyses depend on UniProt or
-NCBI BLAST results, or a HMM match against K04564.
+SOD2 proteins protect cells against oxidative damage by converting toxic
+superoxide radicals into hydrogen peroxide and diatomic oxygen. SOD2 proteins
+can bind either manganese (MnSOD) or iron (FeSOD) as co-factors; their
+structure consists of conserved residues His26, His74, Asp159, and His163
+(human sequence coordinates) forming the anchors of a trigonal bypyramidal
+metal pocket and variations in the outer shell, based on bound metal, to ensure
+superoxide dismutase activity \cite{perry2010bbapap}. SOD2 is present
+throughout tree of life, with bacterial SOD2 often preferring Fe as cofactor,
+mammalian SOD2 almost always requires Mn as a cofactor to function in
+mitochondria, and metal preference not always phylogenetically constrained
+\cite{sendra2023nee}.
 
-Secreted SOD2 work:
-Old secret protein work, but only on coral https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0012508
-Mt and secreted in hydra vulgaris https://www.sciencedirect.com/science/article/abs/pii/S0378111906005725?via%3Dihub
+Existing literature is vague on the types of SOD2 proteins in coral hosts and
+their symbiotic algae. While there is consensus on the presence of
+mitochondrial MnSOD in corals, other forms of SOD2 in coral and symbiotic algae
+are rarely discussed/analyzed separately. \cite{saragosti2010plosone} reports
+experimental evidence for secreted superoxide dismutase activity in
+\textit{Stylophora pistillata} without identifying the source of such activity.
+\cite{dash2007gene} experimentally identifies two forms of MnSOD in
+\textit{Hydra vulgaris}, a non-coral species in the cnidaria phylum.
+\cite{krueger2015eb} computationally compares various annotated MnSOD and FeSOD
+sequences from various symbiodinium species, with grouping of sequences, based
+on putative annotation, inconsistent with findings of this paper. Indeed, most
+transcriptomic analyses in the field depend on blasting against UniProt or
+NCBI, or matching against the HMM profile K04564, a pan-metagenomic KEGG
+ortholog (\cite{kegg}) for SOD2. Neither approacher provide resolution beyond
+putative superoxide dismutase activity.
 
-Old alignment work - Krueger et al
-Discusses Mt/S and Chloroplast versions in algae, but they took annotations
-from published sources and presented alignments assuming those annotations were
-correct. They noticed bigger differences between their MnSOD3 group with other
-groups. This is because their MnSOD3 is in fact a SP targeting one, while their
-MnSOD1 and MnSOD2 groups are actually our sp_cpt groups.
+This paper presents results from an unbiased computational search and grouping
+of SOD2 protein sequences, using NCBI deposited genome sequences from 36 coral
+and 10 symbiodinium species, as well as RNAseq datasets from 5 papers.
 
 This work here looked at X genomes and Y transcriptomes to classify SOD2
 proteins. When protein sequences are available, they are used. In all cases,

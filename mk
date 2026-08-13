@@ -1,3 +1,4 @@
-latex main
-latex main
-dvipdf main
+pdflatex main
+biber main
+pdflatex main
+pdflatex main

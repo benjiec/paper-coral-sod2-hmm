@@ -31,15 +31,36 @@ putative superoxide dismutase activity.
 
 This paper presents results from an unbiased computational search and grouping
 of SOD2 protein sequences, using NCBI deposited genome sequences from 36 coral
-and 10 symbiodinium species, as well as RNAseq datasets from 5 papers.
+and 10 symbiodinium species, as well as RNAseq datasets from 5 papers. The goal
+of this work is to present specific and unambiguous sequence-level profiles for
+SOD2 proteins in \textit{Anthozoa} and \textit{Dinophyceae}. Although these
+protein groups have features that are suggestive of biological and biochemical
+mechanism, the scope of this paper is limited to computational; there is no
+experimental work, beyond referenced RNAseq experiments, to functionally
+validate the different classes of proteins, determine their metal preference,
+or likely cellular location.
 
-This work here looked at X genomes and Y transcriptomes to classify SOD2
-proteins. When protein sequences are available, they are used. In all cases,
-6-frame translations of the genome sequences were searched exhaustively against
-KO database to identify likely proteins. Together the curated protein sequences
-and HMM searched protein sequences form the search database. We then started
-with K04564 match regions in these proteins, filtered away those w/o key
-residues that are necessary for SOD2 to form a metal binding pocket. For each
-remaining sequence, we searched for possible leader sequences up to 75 AAs
-upstream of the start of the PF00081, using DeepLoc. The sequences were then
-grouped by leader pattern, within coral hosts and within algae, separately.
+Specifically, a protein sequence database was constructed from a) protein
+sequences submitted to and associated with NCBI genome accessions, b) protein
+sequences exhaustively detected using 25k+ KO HMM profiles (\cite{kegg}) on
+6-frame translations of genomic sequences submitted to and associated with NCBI
+genome accessions, and c) protein sequences generated from transcriptomes from
+5 published RNAseq studies. From this database, sequences matching the SOD2
+K04564 profile, having PF00081 and PF02777 Pfam (\cite{pfam}) FeSOD N and
+C-terminal domains, and having four key metal binding pocket residues
+(\cite{perry2010bbapap}) were retained.
+
+A leader discovery algorithm was employed to look for, in predicted exons if
+protein sequence was obtained through a gene model (above (a)) or in upstream
+3-frame translations (above (b)) or in the protein sequence (above (c)),
+possible start codons upstream of the PF00081 match. For each sequence retained
+from the original protein sequence database, zero (if a start codon cannot be
+found) or more candidate K04564 sequences may be generated from this leader
+discovery algorithm. This algorithm is described in more detail in the methods
+section below.
+
+DeepLoc 2.1 (\cite{deeploc21}) classification of candidate K04564 sequences and
+Muscle multi-sequence alignments (\cite{muscle}) were used to group protein
+sequences by leader type, localization, and sequence similiarity, for
+\textit{Anthozoa} and \textit{Dinophyceae} separately.
+

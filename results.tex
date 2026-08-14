@@ -12,58 +12,54 @@ predictions were almost exclusively for coral hosts and symbiodiniums,
 respectively, while the middle prediction includes sequences for both hosts and
 symbionts.
 
-Based on this observation, leader discovery algorithm was adjusted to
-specifically look for start sites in these ranges, and the full length SOD2
-sequences were separated into four buckets: mTP in coral hosts, SP in coral
-hosts, SP+golgi in symbiodinium, and SP in symbiodinium. Multi-sequence
-alignments of mature protein sequences within each bucket showed high degree of
-conservation. Overall, 147 full length SOD2 sequences exhibited these DeepLoc
-called features. Table~\ref{tab:class_breakdown} shows the breakdown.
-
 Additional inspection using DeepLoc, on the SP and golgi apparatus sequences,
 reveal that once the SP is cleaved, DeepLoc predicts the remaining sequence as
 plastid bound. This observation is consistent with general consensus of
 bipartite leader architecture for chloroplast targeting proteins in cells that
-have gone through secondary endosymbiosis.
+have gone through secondary endosymbiosis \cite{mcfadden1999plantbio}.
 
-XXX reference
+Based on these observations, leader discovery algorithm was adjusted to
+specifically look for start sites in these ranges, and the full length SOD2
+sequences were separated into four groups: mTP in coral hosts, SP in coral
+hosts, SP+golgi in symbiodinium, and SP in symbiodinium. Multi-sequence
+alignments of mature protein sequences within each bucket showed high degree of
+conservation. Overall, 147 full length SOD2 sequences exhibited these DeepLoc
+called features. Table~\ref{tab:class_breakdown} shows the breakdown by group.
+Figure~\ref{fig:taxa} shows breakdown by taxonomy -- the first columns on the
+left are transcriptomic sequences, then the rest of the columns are grouped by
+taxonomy of the genomic sequences.
 
-
-Four classes of SOD2 proteins, termed mt\_cnidaria, sp\_cnidaria,
-sp\_ctp\_algae, and sp\_algae, are evident from the candidate sequences.
-Figure~\ref{fig:taxa} shows a breakdown of the number of proteins per class, by
-taxonomy. Transcriptomic data are grouped in the first set of columns on the
-left with NULL as phylum, order, and genus values.
+\begin{table}
+  \caption{Breakdown of full length SOD2 sequences}
+  \centering
+  \begin{tabular}{lllllll}
+    \toprule
+      & & \multicolumn{2}{c}{DeepLoc Predictions}  \\
+      \cmidrule(r){3-4}
+      Group          & Taxonomy     & Leader  & Location        & Start codon upstream of PF00081 & Full length sequences & Mature sequences \\
+      \midrule
+      mt\_cnidaria   & Coral host   & mTP     & Mitochondria    & 15 to 35 AAs & 67 & 65 \\
+      sp\_cnidaria   & Coral host   & SP      & Extracellular   & 15 to 40 AAs & 39 & 35 \\
+      sp\_ctp\_algae & Symbiodinium & SP      & Golgi apparatus & 50 to 70 AAs & 32 & 17 \\
+      sp\_algae      & Symbiodinium & SP      & Extracellular   & 15 to 35 AAs & 9  & 6  \\
+    \bottomrule
+    \end{tabular}
+    \label{tab:class_breakdown}
+\end{table}
 
 \begin{figure}
   \centering
   \includegraphics[width=0.8\textwidth]{summary_taxa.png}
-  \caption{Sample figure caption.}
+  \caption{Orange vertical bars show the number of full length SOD2 sequences
+	   per species/genome for each of the four protein groups. Left columns
+	   are sequences from RNAseq studies. Right columns include sequences
+           from genomes, grouped by taxonomy. The horizontal marks show the highest HMM
+           scores from each set of sequences against the HMM profile for the protein
+	   group. A high HMM score without a orange vertical bar indicates a
+           false-negative, due to DeepLoc unable to predict the required leader type
+           and/or compartment.}
   \label{fig:taxa}
 \end{figure}
-
-Talk about transcriptomic data.
-
-Numbers
-
-134 protein sequences matched to one of the 4 classes, totalling to 147 full
-length sequences as there are multiple sequences with multiple possible Ms
-  - also each class used separate distances to do discovery
-
-breakdown of 147 is
-mt_MnSOD_cnidaria_all.faa:67
-sp_ctp_MnFeSOD_algae_all.faa:32
-sp_MnFeSOD_algae_all.faa:9
-sp_MnFeSOD_cnidaria_all.faa:39
-
-147 was the used also to make figure 1
-
-from the 147, 127 unique mature sequences were used to make HMM profiles for
-mature sequences
-
-additional 37 reference sequeces, would have made 160, but we only used 155 for
-the tree generation, missing 5 sequences from PM34. this is figure 2.
-
 
 \begin{figure}
   \centering
@@ -72,12 +68,55 @@ the tree generation, missing 5 sequences from PM34. this is figure 2.
   \label{fig:tree}
 \end{figure}
 
+\subsection*{Four groups of SOD2 sequences, two in coral hosts and two in
+symbiodinium, are clearly distinguishable from each other, show high sequence
+conservation within each group, and covers >90\% of sequences with SOD2
+signature}
+
+XXX figure one was 147? then why no orange bars?
+
+Talk about transcripmic dataset. Or should we do this earlier in intro.
+
+The mature enzyme sequence, w/o leader, form distinctive clades that do not
+overlap. Furthermore the HMM threshold scores for mature enzyme group profiles
+show a large drop with F=1 (i.e. no FPs or FNs) at very clear boundaries.
+Mature enzyme sequence correlates with leader, and appear to also with target
+compartment. From the 147, 127 unique mature sequences were used to make HMM
+profiles for mature sequences.
+
 Figure~\ref{fig:tree}
 
 IQtree of mature enzyme sequence (3 AA of PF00081 to 100 AA of PF02777) forms
 4 clades, with sp\_cnidaria being paraphyletic, the rest are monophyletic, hard
 to assign metals from this as sequence similarity may not correspond to metal
 preference. This establishes that
+
+additional 37 reference sequeces, 123 unique mature sequences total 160.
+clustered at 0.98 sequence similiarty to reduce down to 110. for tree
+generation.
+
+Completeness
+
+Generated 202 K04564 matches from our genomic and RNAse datasets, reduced down
+to 114 unique mature enzyme sequences that possess all key residues and spans
+from 3rd AA of PF00081 to 100 AA of PF02777, so removing any partial matches
+due to bad genome assemblies or truncated gene models.  
+
+this is all\_k04564\_matches\_mature\_region.faa and the .tsv file
+
+12 out of 144 fell below the above mature profile thresholds, rest belong to one of the 4 clades
+
+4 are similar to or is CAE7459428.1 and is just below the threshold for
+sp\_ctp\_algae; CAE7459428.1 would have been a hit for sp\_ctp\_algae if its SP
+signal was stronger.
+
+8/144, or 6%, unknown
+
+Present: Final HMM profile for each group, with threshold scores for full
+protein and probably mature proteins, and rules
+
+
+
 
 
 \subsection*{A mitochondrial MnSOD exists across all corals}
@@ -131,43 +170,4 @@ May be secreted? Transcript counts from one RNAseq experiment suggest very weak
 if any expression.
 
 
-\subsection*{The mature protein sequences of the four classes are cleanly
-distinguishable from each other and covers almost all of detectable K04564 sequences}
 
-The mature enzyme sequence, w/o leader, form distinctive clades that do not
-overlap. Furthermore the HMM threshold scores for mature enzyme group profiles
-show a large drop with F=1 (i.e. no FPs or FNs) at very clear boundaries.
-Mature enzyme sequence correlates with leader, and appear to also with target
-compartment
-
-Generated 202 K04564 matches from our genomic and RNAse datasets, reduced down
-to 114 unique mature enzyme sequences that possess all key residues and spans
-from 3rd AA of PF00081 to 100 AA of PF02777, so removing any partial matches
-due to bad genome assemblies or truncated gene models.  
-
-this is all\_k04564\_matches\_mature\_region.faa and the .tsv file
-
-12 out of 144 fell below the above mature profile thresholds, rest belong to one of the 4 clades
-
-4 are similar to or is CAE7459428.1 and is just below the threshold for
-sp\_ctp\_algae; CAE7459428.1 would have been a hit for sp\_ctp\_algae if its SP
-signal was stronger.
-
-8/144, or 6%, unknown
-
-Final HMM profile for each group, with threshold scores for full protein and
-probably mature proteins, and rules
-
-c. goreaui should have had one, but in CAL1167723.1, PF00081 did not match
-well, if we define PF00081 from position 11 not position 3, may have been ok
-
-Mature HMM vs leader
-
-Should be SP-cPT? DeepLoc reports Golgi as targets for both but do not report SP for them, SignalP reports weak SP, but sequence kind of matches
-BGNK01003376.1\_K04564\_a3776c6c u60
-OZ257276.1\_K04564\_ace37290 u60 
-
-Should be SP? These are the same sequence. DeepLoc thinks they are not SP and for plastid. Mature sequence definitely matches better for SP\_algae but is below threshold.
-CAL1167723.1\_with\_leader\_u21\_PF00081\_M
-evm.model.scf7180000356577.1\_with\_leader\_u21\_PF00081\_M
-  Issue is that we are missing 11 bps of PF00081

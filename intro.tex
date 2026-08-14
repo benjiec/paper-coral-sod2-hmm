@@ -48,18 +48,21 @@ genome accessions, and c) protein sequences generated from transcriptomes from
 5 published RNAseq studies. From this database, sequences matching the SOD2
 K04564 profile, having PF00081 and PF02777 Pfam (\cite{pfam}) FeSOD N and
 C-terminal domains, and having four key metal binding pocket residues
-(\cite{perry2010bbapap}) were retained.
+(\cite{perry2010bbapap}) were retained. In total, 158 sequences matched these
+criteria, including 29 sequences from RNAseq datasets. A \textit{mature protein
+sequence} bounded by (inclusive) the 3rd AA of PF00081 and 100th AA of PF02777
+was extracted for each sequence.
 
 A leader discovery algorithm was employed to look for, in predicted exons if
 protein sequence was obtained through a gene model (above (a)) or in upstream
 3-frame translations (above (b)) or in the protein sequence (above (c)),
-possible start codons upstream of the PF00081 match. For each sequence retained
-from the original protein sequence database, zero (if a start codon cannot be
-found) or more candidate K04564 sequences may be generated from this leader
-discovery algorithm. This algorithm is described in more detail in the methods
-section below.
+possible start codons upstream of the 158 mature protein sequence. For each
+mature sequence, zero (if a start codon cannot be found) or more candidate full
+length SOD2 sequences may be generated from this leader discovery algorithm.
+Below, the Methods section describes this algorithm as well as the protein
+sequence database generation in more detail.
 
-DeepLoc 2.1 (\cite{deeploc21}) classification of candidate K04564 sequences and
-MUSCLE multi-sequence alignments (\cite{muscle}) were used to group protein
-sequences, for \textit{Anthozoa} and \textit{Dinophyceae} separately, by leader
-type, localization, and sequence similiarity.
+MUSCLE multi-sequence alignments (\cite{muscle}) was used to group mature
+protein sequences. DeepLoc 2.1 (\cite{deeploc21}) was used to determine
+possible target cellular compartment and leader type of each full length SOD2
+sequence.

@@ -1,10 +1,18 @@
 
 \section*{Results}
 
+Multi-sequence alignment of all full length SOD2 sequences reveals four
+clusters of mature protein sequences. Each cluster of mature protein sequences
+were then separately aligned using MUSCLE, and each cluster shows high sequence
+conservation internally. Two of these clusters exclusively belong to
+\textit{Anthozoa} and the other two to \textit{Dinophyceae}. Additionally, the
+clusters correlate to DeepLoc prediction outcomes.
+
 Four classes of SOD2 proteins, termed mt\_cnidaria, sp\_cnidaria,
 sp\_ctp\_algae, and sp\_algae, are evident from the candidate sequences.
 Figure~\ref{fig:taxa} shows a breakdown of the number of proteins per class, by
-taxonomy. Transcriptomic data are grouped in the first columns on the left.
+taxonomy. Transcriptomic data are grouped in the first set of columns on the
+left with NULL as phylum, order, and genus values.
 
 \begin{figure}
   \centering
@@ -15,7 +23,28 @@ taxonomy. Transcriptomic data are grouped in the first columns on the left.
 
 Talk about transcriptomic data.
 
-Talk about mature sequence.
+Numbers
+
+158 protein sequences went into candidate discovery
+
+134 protein sequences matched to one of the 4 classes, totalling to 147 full
+length sequences as there are multiple sequences with multiple possible Ms
+  - also each class used separate distances to do discovery
+
+breakdown of 147 is
+mt_MnSOD_cnidaria_all.faa:67
+sp_ctp_MnFeSOD_algae_all.faa:32
+sp_MnFeSOD_algae_all.faa:9
+sp_MnFeSOD_cnidaria_all.faa:39
+
+147 was the used also to make figure 1
+
+from the 147, 127 unique mature sequences were used to make HMM profiles for
+mature sequences
+
+additional 37 reference sequeces, would have made 160, but we only used 155 for
+the tree generation, missing 5 sequences from PM34. this is figure 2.
+
 
 \begin{figure}
   \centering

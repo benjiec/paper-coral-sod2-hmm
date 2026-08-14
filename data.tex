@@ -1,0 +1,39 @@
+\section*{Additional data}
+
+4 rules.tsv and 4 sequences.tsv, listing which sequences passed the filters, and which genomes they come from
+
+Transcriptome sequences come from these papers
+
+Final list of all sequences that passed the rules and are used for alignment
+
+Final list of unique mature sequences from above
+
+Profiles and thresholds
+
+Figure 1 tsv for list of sequences and scores against each HMM and genomes TSV - need the 147 row list of passing sequences used to generate HMM profiles
+
+Figure 2 tree inputs, this is 3 tx sequences short from the 160
+
+
+
+158 protein sequences went into candidate discovery
+
+134 protein sequences matched to one of the 4 classes, totalling to 147 full
+length sequences as there are multiple sequences with multiple possible Ms
+  - also each class used separate distances to do discovery
+
+breakdown of 147 is
+mt_MnSOD_cnidaria_all.faa:67
+sp_ctp_MnFeSOD_algae_all.faa:32
+sp_MnFeSOD_algae_all.faa:9
+sp_MnFeSOD_cnidaria_all.faa:39
+
+147 was the used also to make figure 1
+
+from the 147, 127 unique mature sequences were used to make HMM profiles for
+mature sequences
+
+additional 37 reference sequeces, would have made 160, but we only used 155 for
+the tree generation, missing 5 sequences from PM34. this is figure 2.
+
+

@@ -70,4 +70,34 @@ otherwise. More on all of these in the Methods section below.
 DeepLoc 2.1 (\cite{deeploc21}) was used to determine possible target cellular
 compartment and leader type of each full length SOD2 sequence. MUSCLE
 multi-sequence alignments (\cite{muscle}) was used to group mature protein
-sequences. 
+sequences.
+
+Five RNAseq studies are included in this work. Table~\ref{tab:rnapapers} lists
+the papers and the dataset each contributes. RNAseq data provides further
+evidence for expression, and works around the complex splicing machinery in
+symbiodinium. In some cases, raw reads from the original paper were obtained
+from NCBI and assembled using Trinity (\cite{trinity}) into a transcriptome,
+and TransDecoder (\cite{trinity}) was used to generate protein sequences.
+
+\begin{table}
+  \caption{RNAseq sequences used in this paper}
+  \centering
+  \begin{tabular}{llll}
+    \toprule
+      Species                         & Source of Raw Reads    & Source of Transcriptome       & Source of Protein Sequences \\
+      \midrule
+      \textit{Acropora tenuis}        & \cite{pm32}            & This paper, Trinity           & This paper, TransDecoder    \\
+      \textit{Orbicella faveolata}    & \cite{pm34}            & This paper, Trinity           & This paper, TransDecoder    \\
+      \textit{Pseudodiploria clivosa} & \cite{pm34}            & This paper, Trinity           & This paper, TransDecoder    \\
+      \textit{Siderastrea radians}    & \cite{pm34}            & This paper, Trinity           & This paper, TransDecoder    \\
+      \textit{Durusdinium trenchii}   & \cite{pm31}            & \cite{pm31}                   & This paper, TransDecoder    \\
+      \textit{Cladocopium goreaui}    & \cite{pm32}            & This paper, Trinity           & This paper, TransDecoder    \\
+      \textit{Breviolum B5}           & \cite{pm34}            & This paper, Trinity           & This paper, TransDecoder    \\
+      \textit{Breviolum faviinorum}   & \cite{pm34}            & This paper, Trinity           & This paper, TransDecoder    \\
+      \textit{Symbiodinium A3}        & \cite{pm34}            & This paper, Trinity           & This paper, TransDecoder    \\
+      \textit{Durusdinium trenchii}   & \cite{pm35}            & This paper, Trinity           & This paper, TransDecoder    \\
+      \textit{Cladocopium goreaui}    & \cite{pm36}            & \cite{pm36}                   & This paper, TransDecoder    \\
+    \bottomrule
+    \end{tabular}
+    \label{tab:rnapapers}
+\end{table}

@@ -23,11 +23,11 @@ specifically look for start sites in these ranges, and the full length SOD2
 sequences were separated into four groups: mTP in coral hosts, SP in coral
 hosts, SP+golgi in symbiodinium, and SP in symbiodinium. Multi-sequence
 alignments of mature protein sequences within each bucket showed high degree of
-conservation. Overall, 147 full length SOD2 sequences exhibited these DeepLoc
-called features. Table~\ref{tab:class_breakdown} shows the breakdown by group.
-Figure~\ref{fig:taxa} shows breakdown by taxonomy -- the first columns on the
-left are transcriptomic sequences, then the rest of the columns are grouped by
-taxonomy of the genomic sequences.
+conservation. Overall, 147 full length SOD2 sequences, 123 unique, exhibited
+these DeepLoc called features. Table~\ref{tab:class_breakdown} shows the
+breakdown by group.  Figure~\ref{fig:taxa} shows breakdown by taxonomy -- the
+first columns on the left are transcriptomic sequences, then the rest of the
+columns are grouped by taxonomy of the genomic sequences.
 
 \begin{table}
   \caption{Breakdown of full length SOD2 sequences}
@@ -36,12 +36,13 @@ taxonomy of the genomic sequences.
     \toprule
       & & \multicolumn{2}{c}{DeepLoc Predictions}  \\
       \cmidrule(r){3-4}
-      Group          & Taxonomy     & Leader  & Location        & Start codon upstream of PF00081 & Full length sequences & Mature sequences \\
+      Group          & Taxonomy     & Leader  & Location        & Start codon upstream & Unique full \\
+                     &              &         &                 & of PF00081           & length seqs \\
       \midrule
-      mt\_cnidaria   & Coral host   & mTP     & Mitochondria    & 15 to 35 AAs & 67 & 65 \\
-      sp\_cnidaria   & Coral host   & SP      & Extracellular   & 15 to 40 AAs & 39 & 35 \\
-      sp\_ctp\_algae & Symbiodinium & SP      & Golgi apparatus & 50 to 70 AAs & 32 & 17 \\
-      sp\_algae      & Symbiodinium & SP      & Extracellular   & 15 to 35 AAs & 9  & 6  \\
+      mt\_cnidaria   & Coral host   & mTP     & Mitochondria    & 15 to 35 AAs         & 65 \\
+      sp\_cnidaria   & Coral host   & SP      & Extracellular   & 15 to 40 AAs         & 35 \\
+      sp\_ctp\_algae & Symbiodinium & SP      & Golgi apparatus & 50 to 70 AAs         & 17 \\
+      sp\_algae      & Symbiodinium & SP      & Extracellular   & 15 to 35 AAs         & 6  \\
     \bottomrule
     \end{tabular}
     \label{tab:class_breakdown}
@@ -50,14 +51,15 @@ taxonomy of the genomic sequences.
 \begin{figure}
   \centering
   \includegraphics[width=0.8\textwidth]{summary_taxa.png}
-  \caption{Orange vertical bars show the number of full length SOD2 sequences
-	   per species/genome for each of the four protein groups. Left columns
+  \caption{Orange vertical bars are the numbers of full length SOD2 sequences
+	   per species/genome, for each of the four protein groups. Left columns
 	   are sequences from RNAseq studies. Right columns include sequences
-           from genomes, grouped by taxonomy. The horizontal marks show the highest HMM
-           scores from each set of sequences against the HMM profile for the protein
-	   group. A high HMM score without a orange vertical bar indicates a
-           false-negative, due to DeepLoc unable to predict the required leader type
-           and/or compartment.}
+           from genomes, grouped by taxonomy. Horizontal marks are the highest HMM
+	   scores from each set of sequences, scored against the HMM profile
+	   for that protein group. A high HMM score without accompanying orange
+           vertical bar indicates a false negative -- a protein sequence can be
+	   classified by HMM into a group, but DeepLoc is unable to predict the
+           required leader type and/or compartment.}
   \label{fig:taxa}
 \end{figure}
 
@@ -72,10 +74,6 @@ taxonomy of the genomic sequences.
 symbiodinium, are clearly distinguishable from each other, show high sequence
 conservation within each group, and covers >90\% of sequences with SOD2
 signature}
-
-XXX figure one was 147? then why no orange bars?
-
-Talk about transcripmic dataset. Or should we do this earlier in intro.
 
 The mature enzyme sequence, w/o leader, form distinctive clades that do not
 overlap. Furthermore the HMM threshold scores for mature enzyme group profiles

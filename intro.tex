@@ -45,22 +45,27 @@ sequences submitted to and associated with NCBI genome accessions, b) protein
 sequences exhaustively detected using 25k+ KO HMM profiles (\cite{kegg}) on
 6-frame translations of genomic sequences submitted to and associated with NCBI
 genome accessions, and c) protein sequences generated from transcriptomes from
-5 published RNAseq studies. From this database, sequences matching the SOD2
-K04564 profile, having PF00081 and PF02777 Pfam (\cite{pfam}) FeSOD N and
-C-terminal domains, and having four key metal binding pocket residues
-(\cite{perry2010bbapap}) were retained. In total, 158 sequences matched these
-criteria, including 29 sequences from RNAseq datasets. A \textit{mature protein
-sequence} bounded by (inclusive) the 3rd AA of PF00081 and 100th AA of PF02777
-was extracted for each sequence.
+5 published RNAseq studies. 210 seed sequences meeting the K04564 HMM profile
+minimum threshold (\cite{kofam}) were selected from this sequence database.
+
+Seed sequences were further filtered to those containing PF00081 and PF02777
+Pfam FeSOD N and C-terminal domains, using Pfam's gathering score
+(\cite{pfam}), and having four key metal binding pocket residues
+(\cite{perry2010bbapap}). A \textit{mature protein sequence} between
+(inclusive) the 3rd AA of PF00081 and 100th AA of PF02777 was extracted for
+each remaining seed sequence.
 
 A leader discovery algorithm was employed to look for, in predicted exons if
 protein sequence was obtained through a gene model (above (a)) or in upstream
 3-frame translations (above (b)) or in the protein sequence (above (c)),
-possible start codons upstream of the 158 mature protein sequence. For each
-mature sequence, zero (if a start codon cannot be found) or more candidate full
-length SOD2 sequences may be generated from this leader discovery algorithm.
-Below, the Methods section describes this algorithm as well as the protein
-sequence database generation in more detail.
+possible start codons upstream of each mature protein sequence. This algorithm
+produced zero (if no suitable start codon was found) or more full length SOD2
+sequences for each mature sequence. This leader discovery step typically found
+predicted start sites for coral hosts, but was instrumental in finding complete
+SOD2 sequences in symbiotic algae genomic and transcriptomic data; tandom
+transcription (\cite{zhang2007microb}) and alternative splicing sites
+(\cite{gyoja2013currentbio}) make gene prediction in dinoflagellates difficult
+otherwise. More on all of these in the Methods section below.
 
 MUSCLE multi-sequence alignments (\cite{muscle}) was used to group mature
 protein sequences. DeepLoc 2.1 (\cite{deeploc21}) was used to determine

@@ -8,9 +8,8 @@ Figure~\ref{fig:tree} strongly suggests that mT\_cnidaria is the canonical
 mitochondrial MnSOD protein, clustered with reference primate and fungal
 mitochondrial targeting MnSOD sequences with the enclosing fungal node
 supported by a branch bootstrap score of 100. Likely, mT\_cnidaria evolved from
-the endosymbiosis event that gave rise to the eukaryotic mitochondria.
-
-In contrast, SP\_cnidaria appears to have evolved distantly from mT\_cnidaria,
+the endosymbiosis event that gave rise to the eukaryotic mitochondria. In
+contrast, SP\_cnidaria appears to have evolved distantly from mT\_cnidaria,
 likely independent of mitochondrial endosymbiosis.
 
 More sequences would boost confidence of any interpretation of the grouping of
@@ -47,23 +46,14 @@ evidence for secreted SOD2 activity in literature \cite{dash2007gene}
 sequence.
 
 The leader type in these three groups come from DeepLoc \cite{deeploc21}. To
-sanity check DeepLoc predictions, 
-
-XXX
-Should be secreted, using K09490 (ER chaperone) as control: sequences from
-various species fall into two groups, one had SP+ER DeepLoc call, the other
-NLS+Cytoplasm. Stripping out the SP, DeepLoc does not by default report Plastid
-but reports ER and Cytoplasm as localization, and NLS, NES, and SP as signals.
-
-Should be plastid, using K02639 (ferredoxin) as control: DeepLoc detected Golgi
-as localization, but SP was only called for some sequences not all even though
-the leader sequence appears to be highly conserved. Stripping out the SP,
-DeepLoc reports Plastid as the localization for the truncated protein.
-
-
-\subsection*{Disagreement with prior grouping}
-
-Results from this paper disagree with statements in \cite{krueger2015eb}, where
-protein sequences were grouped into MnSOD1, MnSOD2, and MnSOD3 groups.
-Sequences from MnSOD1 and MnSOD2 matched well with SP\_cTP\_algae, while some
-sequences from the MnSOD3 group scored above threshold for SP\_algae.
+sanity check DeepLoc predictions, protein sequences matching K09490, an ER
+chaperone slated for the secretory pathway, and K02639, ferredoxins that
+typically target the chloroplast, were passed to DeepLoc. For K09490 matching
+proteins, DeepLoc reports either a) SP as the leader and ER as the cellular
+compartment, or b) NLS as the leader and cytoplasm as the target compartment.
+Removing the SP, DeepLoc reports the ER or Cytoplasm as the target compartment
+for the truncated sequences. For K02639 matching sequences, DeepLoc reports SP
+as the leader for some sequences, and Golgi apparatus as the target
+compartment. Removing the SP, DeepLoc reports Plastid as the target compartment
+for the truncated protein sequences. These results indicate that DeepLoc
+predictions for the four SOD2 protein groups are unlikely coincidences.

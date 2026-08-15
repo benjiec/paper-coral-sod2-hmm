@@ -102,11 +102,30 @@ this omission in the genome is real, or due to some genome assembly artifact.
 
 \subsection*{RNAseq data provides expression evidence for all but SP\_algae}
 
-XXX tx counts from PM34
-XXX sp\_algae may not express? but RNAseq data cannot confirm these because
-most are single timepoint and condition
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{tx_counts.png}
+  \caption{Transcript counts, in transcripts per million (TPM), for the four
+	   protein groups, from RNAseq data provided by \cite{pm34}. Orange and
+	   blue lines are from treatment groups at elevated temperature and
+	   control groups at normal temperature, respectively. Differential
+           expression analysis is out of scope for this paper.}
+  \label{fig:txcounts}
+\end{figure}
 
-What's missing? Acroproa and sp\_cnidaria?
+\cite{pm34} provides RNA sequencing reads for three holobionts, (using paper's
+description) thermally sensitive \textit{Pseudodiploria clivosa} and its
+symbiotic algae \textit{Symbiodinium A3}, thermally robust \textit{Orbicella
+faveolata} and its symbiotic algae \textit{Breviolum faviinorum}, and thermally
+resistant \textit{Siderastrea radians} and its symbiotic algae
+\textit{Breviolum B5}.
+
+Figure~\ref{fig:txcounts} shows that proteins from all four groups were present
+in the RNAseq data and registered positive read counts (transcripts per
+million, or TPM), although read counts for SP\_algae are quite low. In depth
+comparison of these proteins between the treatment group at elevated
+temperature (orange lines) and the control group at normal temperature (blue
+lines) is beyond the scope of this paper.
 
 
 \subsection*{The four groups of SOD2 proteins form distinct clades in an
@@ -115,7 +134,9 @@ unrooted phylogenetic tree, suggesting independent evolution}
 \begin{figure}
   \centering
   \includegraphics[width=0.8\textwidth]{tree_full.png}
-  \caption{Sample figure caption.}
+  \caption{Unrooted phylogenetic tree of the mature protein sequences from the
+	   four SOD2 protein groups and other reference sequences. UFBoot
+           scores are shown next to the branches.}
   \label{fig:tree}
 \end{figure}
 

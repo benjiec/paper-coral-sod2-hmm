@@ -1,6 +1,44 @@
 
 \section*{Discussion}
 
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{tree_full.png}
+  \caption{Sample figure caption.}
+  \label{fig:tree}
+\end{figure}
+
+\subsection*{The four groups of SOD2 proteins form distinct clusters in an
+unrooted phylogenetic tree, and subclusters within each coral protein group
+correlate with genus}
+
+160 mature SOD2 sequences consisting of the 123 from coral and symbiodinium,
+plus 37 from annotated reference SOD2 proteins from across the tree of life,
+were clustered (98\% sequence similarity) using MMSeqs (\cite{mmseqs2}),
+aligned using MUSCLE, and organized into an unrooted phylogenetic tree using
+IQTree (\cite{iqtree}). Figure~\ref{fig:tree} shows the tree as visualized
+using iTOL (\cite{itol}).
+
+Each of the four query groups (SP_cnidaria, SP_cTP_algae, SP_algae,
+mT_cnidaria) forms an exclusive clade sharing a unique common ancestor that
+includes every member of that specific set. This confirms that each targeting
+subgroup represents a coherent gene family that evolved together without
+intermixing with the others, that the mature domain co-evolved in lockstep with
+the target signals, and that the four groups likely evolved completely
+independently from earlier gene duplication events.
+
+mT_cnidaria is a canonical mitochondrial MnSOD, clustered with reference
+primate/fungal sequences, with the enclosing fungal node at 100. mT_cnidaria
+cluster well with other primate mitochondrial SOD, and evolved through the
+mitochondrial acquisition/endosymbiosis. sp_cnidaria evolved distantly from
+mt_cnidaria, and independent of the mitochondrial evolution/adaption.
+
+sp_algae and sp_ctp_algae are paralogs that may have came from duplication
+events. They are distinct groups. ctp is closer to Phadactylum which is a
+diatom, red secondary plastid, than to sp. SP_cTP_algae is specifically sister
+to Phaeodactylum tricornutum FeSOD at 100 — the strongest query-to-reference
+relationship present.
+
 
 \subsection*{Unverified metal specificity}
 
@@ -12,6 +50,14 @@ contribute to that tuning; consequently prediction methods based solely on
 primary sequence have not given strong predictive values. There are documented
 sequence/metal mismatches — e.g. the Sinorhizobium meliloti SOD has an
 iron-type sequence but preferentially incorporates Mn in vivo. 
+
+mT_cnidaria is a canonical mitochondrial MnSOD. SP_cTP_algae is specifically
+sister to Phaeodactylum tricornutum FeSOD at 100 — the strongest
+query-to-reference relationship present.
+
+Tree position does not determine cofactor. E.g. Fragilariopsis FeSOD pairs with
+Phaeodactylum MnSOD at UFBoot 97.
+
 
 
 \subsection*{Unverified location}
@@ -49,13 +95,3 @@ groups. This is because their MnSOD3 is in fact a SP targeting one, while their
 MnSOD1 and MnSOD2 groups are actually our sp\_cpt groups. E.g. several SymMnSOD1
 and SymMnSOD2 scored above 442 for SP\_cTP\_algae, while two SymMnSOD3
 sequences scored above 400 for SP\_algae.
-
-
-\subsection*{HMM profiles pan metagenomic or family specific}
-
-K04564 is pan genomic, threshold scores are low because only a few key residues
-are conserved. The optimization algorithm drove the threshold down to 41.53 to
-maintain functional annotation capacity across highly diverse phyla.
-
-Our profiles can be more specific. Threshold scores can change as we add more
-sequences. Mature HMMs predict location.

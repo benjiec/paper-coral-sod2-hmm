@@ -93,6 +93,12 @@ considered FNs. The remaining 8, or 7\% are unknown sequences. Thus, the four
 HMM profiles are able to cover 93\% of all K04564 matching sequences in this
 paper's datasets.
 
+Interestingly, SP\_cnidaria sequences are missing from all the genomes under
+the \textit{Acroporidae} family. The \textit{Acropora tenuis} RNAseq data from
+\cite{pm32} was captured against its genomic sequences, which may also explain
+the lack of a SP\_cnidaria sequence in that transcriptome. It is unclear if
+this omission in the genome is real, or due to some genome assembly artifact.
+
 
 \subsection*{RNAseq data provides expression evidence for all but SP\_algae}
 
@@ -102,3 +108,26 @@ most are single timepoint and condition
 
 What's missing? Acroproa and sp\_cnidaria?
 
+
+\subsection*{The four groups of SOD2 proteins form distinct clades in an
+unrooted phylogenetic tree, suggesting independent evolution}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{tree_full.png}
+  \caption{Sample figure caption.}
+  \label{fig:tree}
+\end{figure}
+
+160 mature SOD2 sequences consisting of the 123 from coral and symbiodinium,
+plus 37 from annotated reference SOD2 proteins from across the tree of life,
+were clustered (98\% sequence similarity) using MMSeqs (\cite{mmseqs2}),
+aligned using MUSCLE, and organized into an unrooted phylogenetic tree using
+IQTree (\cite{iqtree}).
+
+Figure~\ref{fig:tree} shows the tree as visualized using iTOL (\cite{itol}).
+Each of the four protein groups forms an exclusive clade that includes every
+member of the group and shares a unique common ancestor. This tree structure
+suggests these four groups evovled independently, without intermixing with each
+other. Additionally, the mature protein sequences co-evolved, in lockstep, with
+the localization signals.

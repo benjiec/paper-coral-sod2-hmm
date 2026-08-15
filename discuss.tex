@@ -1,97 +1,69 @@
 
 \section*{Discussion}
 
-\begin{figure}
-  \centering
-  \includegraphics[width=0.8\textwidth]{tree_full.png}
-  \caption{Sample figure caption.}
-  \label{fig:tree}
-\end{figure}
 
-\subsection*{The four groups of SOD2 proteins form distinct clusters in an
-unrooted phylogenetic tree, and subclusters within each coral protein group
-correlate with genus}
+\subsection*{Independent evolution of the four protein groups}
 
-160 mature SOD2 sequences consisting of the 123 from coral and symbiodinium,
-plus 37 from annotated reference SOD2 proteins from across the tree of life,
-were clustered (98\% sequence similarity) using MMSeqs (\cite{mmseqs2}),
-aligned using MUSCLE, and organized into an unrooted phylogenetic tree using
-IQTree (\cite{iqtree}). Figure~\ref{fig:tree} shows the tree as visualized
-using iTOL (\cite{itol}).
+Figure~\ref{fig:tree} strongly suggests that mT\_cnidaria is the canonical
+mitochondrial MnSOD protein, clustered with reference primate and fungal
+mitochondrial targeting MnSOD sequences with the enclosing fungal node
+supported by a branch bootstrap score of 100. Likely, mT\_cnidaria evolved from
+the endosymbiosis event that gave rise to the eukaryotic mitochondria.
 
-Each of the four query groups (SP_cnidaria, SP_cTP_algae, SP_algae,
-mT_cnidaria) forms an exclusive clade sharing a unique common ancestor that
-includes every member of that specific set. This confirms that each targeting
-subgroup represents a coherent gene family that evolved together without
-intermixing with the others, that the mature domain co-evolved in lockstep with
-the target signals, and that the four groups likely evolved completely
-independently from earlier gene duplication events.
+In contrast, SP\_cnidaria appears to have evolved distantly from mT\_cnidaria,
+likely independent of mitochondrial endosymbiosis.
 
-mT_cnidaria is a canonical mitochondrial MnSOD, clustered with reference
-primate/fungal sequences, with the enclosing fungal node at 100. mT_cnidaria
-cluster well with other primate mitochondrial SOD, and evolved through the
-mitochondrial acquisition/endosymbiosis. sp_cnidaria evolved distantly from
-mt_cnidaria, and independent of the mitochondrial evolution/adaption.
-
-sp_algae and sp_ctp_algae are paralogs that may have came from duplication
-events. They are distinct groups. ctp is closer to Phadactylum which is a
-diatom, red secondary plastid, than to sp. SP_cTP_algae is specifically sister
-to Phaeodactylum tricornutum FeSOD at 100 — the strongest query-to-reference
-relationship present.
+More sequences would boost confidence of any interpretation of the grouping of
+SP\_algae and SP\_cTP\_algae in the tree. Currently, these two dstinct groups
+appear to be paralogs that have came from gene duplication events.
 
 
-\subsection*{Unverified metal specificity}
+\subsection*{Unverified metal specificity for three protein groups}
 
-Metal specificity is a spectrum, not a binary: there are Mn-specific,
-Fe-specific, and cambialistic SODs that work with either ion, and the modern
-distribution is polyphyletic. Specificity is tuned by the redox potential of
-the active-site metal, and several non-conserved second-sphere residues
-contribute to that tuning; consequently prediction methods based solely on
-primary sequence have not given strong predictive values. There are documented
-sequence/metal mismatches — e.g. the Sinorhizobium meliloti SOD has an
-iron-type sequence but preferentially incorporates Mn in vivo. 
+mT\_cnidaria is likely a canonical mitochondrial MnSOD. While there are no
+direct experimental evidence of manganese specificity of coral mitochondrial
+SOD2, this specificity has been demonstrated experimentally in other species
+\cite{luk2005jbc}.
 
-mT_cnidaria is a canonical mitochondrial MnSOD. SP_cTP_algae is specifically
-sister to Phaeodactylum tricornutum FeSOD at 100 — the strongest
-query-to-reference relationship present.
+Assigning metal specificity for the other three protein groups cannot be done
+computationally. Metal co-factor preference of a SOD2 protein does not always
+correlate with sequence; specificity depends on several non-conserved second
+sphere residues around the metal binding pocket, different from the key
+structural residues this paper used to filter for functional SOD2 sequences.
+Additionally, while some proteins are Mn or Fe dependent, others are
+cambialistic and can work with either ion.
 
-Tree position does not determine cofactor. E.g. Fragilariopsis FeSOD pairs with
-Phaeodactylum MnSOD at UFBoot 97.
+The metal annotations for the reference sequences in Figure~\ref{fig:tree} come
+from UniProt and are provided as a reference. Many of these annotations may not
+have been experimentally validated.
 
 
+\subsection*{Unverified cellular compartment for three protein groups}
 
-\subsection*{Unverified location}
+The final destination of the SP\_cnidaria, SP\_cTP\_algae, and SP\_algae (if
+expressed) proteins have not been proven experimentally. While there are some
+evidence for secreted SOD2 activity in literature \cite{dash2007gene}
+\cite{saragosti2010plosone}, there is no link, yet, between those activity and
+sequence.
 
-Even though HMM profile scores correlate with leader, we don't actually know
-the exact location.
+The leader type in these three groups come from DeepLoc \cite{deeploc21}. To
+sanity check DeepLoc predictions, 
 
-Mt likely
-SP\_cTP may be
-SP not sure, cite Hydra paper
-
-We checked how DeepLoc and SignalIP would call alveolata proteins that
-Should be mitochondria, using K00235 as control: DeepLoc detected mTP.  Should
-be secreted, using K09490 (ER chaperone) as control: sequences from various
-species fall into two groups, one had SP+ER DeepLoc call, the other
+XXX
+Should be secreted, using K09490 (ER chaperone) as control: sequences from
+various species fall into two groups, one had SP+ER DeepLoc call, the other
 NLS+Cytoplasm. Stripping out the SP, DeepLoc does not by default report Plastid
 but reports ER and Cytoplasm as localization, and NLS, NES, and SP as signals.
+
 Should be plastid, using K02639 (ferredoxin) as control: DeepLoc detected Golgi
 as localization, but SP was only called for some sequences not all even though
 the leader sequence appears to be highly conserved. Stripping out the SP,
-DeepLoc reports Plastid as the localization for the truncated protein. n is
-very small here, as many of the sequences are essentially the same 3 protein
-sequences. To make this publishable we should look for different plastid
-targeted sequences and hope to observe the same behavior from DeepLoc.
+DeepLoc reports Plastid as the localization for the truncated protein.
 
 
 \subsection*{Disagreement with prior grouping}
 
-Krueger et al.
-
-Discusses Mt/S and Chloroplast versions in algae, but they took annotations
-from published sources and presented alignments assuming those annotations were
-correct. They noticed bigger differences between their MnSOD3 group with other
-groups. This is because their MnSOD3 is in fact a SP targeting one, while their
-MnSOD1 and MnSOD2 groups are actually our sp\_cpt groups. E.g. several SymMnSOD1
-and SymMnSOD2 scored above 442 for SP\_cTP\_algae, while two SymMnSOD3
-sequences scored above 400 for SP\_algae.
+Results from this paper disagree with statements in \cite{krueger2015eb}, where
+protein sequences were grouped into MnSOD1, MnSOD2, and MnSOD3 groups.
+Sequences from MnSOD1 and MnSOD2 matched well with SP\_cTP\_algae, while some
+sequences from the MnSOD3 group scored above threshold for SP\_algae.

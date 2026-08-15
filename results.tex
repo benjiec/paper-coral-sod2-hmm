@@ -20,14 +20,14 @@ have gone through secondary endosymbiosis \cite{mcfadden1999plantbio}.
 
 Based on these observations, leader discovery algorithm was adjusted to
 specifically look for start sites in these ranges, and the full length SOD2
-sequences were separated into four groups: mTP in coral hosts, SP in coral
-hosts, SP+golgi in symbiodinium, and SP in symbiodinium. Multi-sequence
-alignments of mature protein sequences within each bucket showed high degree of
-conservation. Overall, 147 full length SOD2 sequences, 123 unique, exhibited
-these DeepLoc called features. Table~\ref{tab:class_breakdown} shows the
-breakdown by group.  Figure~\ref{fig:taxa} shows breakdown by taxonomy -- the
-first columns on the left are transcriptomic sequences, then the rest of the
-columns are grouped by taxonomy of the genomic sequences.
+sequences were separated into four groups: mTP in coral, SP in coral,
+SP+golgi in symbiodinium, and SP in symbiodinium. Multi-sequence alignments of
+mature protein sequences within each bucket showed high degree of conservation.
+Overall, 147 full length SOD2 sequences, 123 unique, exhibited these DeepLoc
+called features. Table~\ref{tab:class_breakdown} shows the breakdown by group.
+Figure~\ref{fig:taxa} shows breakdown by taxonomy -- the first columns on the
+left are transcriptomic sequences, then the rest of the columns are grouped by
+taxonomy of the genomic sequences.
 
 \begin{table}
   \caption{Breakdown of full length SOD2 sequences}
@@ -39,10 +39,10 @@ columns are grouped by taxonomy of the genomic sequences.
       Group          & Taxonomy     & Leader  & Location        & Start codon upstream & Unique full \\
                      &              &         &                 & of PF00081           & length seqs \\
       \midrule
-      mt\_cnidaria   & Coral host   & mTP     & Mitochondria    & 15 to 35 AAs         & 65 \\
-      sp\_cnidaria   & Coral host   & SP      & Extracellular   & 15 to 40 AAs         & 35 \\
-      sp\_ctp\_algae & Symbiodinium & SP      & Golgi apparatus & 50 to 70 AAs         & 17 \\
-      sp\_algae      & Symbiodinium & SP      & Extracellular   & 15 to 35 AAs         & 6  \\
+      mT\_cnidaria   & Coral        & mTP     & Mitochondria    & 15 to 35 AAs         & 65 \\
+      SP\_cnidaria   & Coral        & SP      & Extracellular   & 15 to 40 AAs         & 35 \\
+      SP\_cTP\_algae & Symbiodinium & SP      & Golgi apparatus & 50 to 70 AAs         & 17 \\
+      SP\_algae      & Symbiodinium & SP      & Extracellular   & 15 to 35 AAs         & 6  \\
     \bottomrule
     \end{tabular}
     \label{tab:class_breakdown}
@@ -63,6 +63,17 @@ columns are grouped by taxonomy of the genomic sequences.
   \label{fig:taxa}
 \end{figure}
 
+\subsection*{Four groups of SOD2 sequences, two in coral and two in
+symbiodinium, are clearly distinguishable from each other, and covers >90\% of
+sequences with SOD2 signature}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.6\textwidth]{hmm_scores.png}
+  \caption{\texttt{hmmsearch} scores of protein groups (each in a pane), against all the HMM profiles (columns).}
+\label{fig:hmmscores}
+\end{figure}
+
 \begin{figure}
   \centering
   \includegraphics[width=0.8\textwidth]{summary_tree.png}
@@ -70,102 +81,47 @@ columns are grouped by taxonomy of the genomic sequences.
   \label{fig:tree}
 \end{figure}
 
-\subsection*{Four groups of SOD2 sequences, two in coral hosts and two in
-symbiodinium, are clearly distinguishable from each other, show high sequence
-conservation within each group, and covers >90\% of sequences with SOD2
-signature}
+For each protein group, a HMM profile of the mature protein sequences was
+constructed using hmmer3 (\cite{eddy2011hmmer}). Figure~\ref{fig:hmmscores}
+shows that the four HMM profiles are clearly distinguishable; when scoring each
+group against all four profiles, the correct profile, in orange, scores the
+highest, with no overlap with other scores. The lowest score from each set of
+orange marks is used as the "threshold score" for the corresponding HMM
+profile. The values are 303.5, 262.4, 441.8, and 421.3, respectively.
 
-The mature enzyme sequence, w/o leader, form distinctive clades that do not
-overlap. Furthermore the HMM threshold scores for mature enzyme group profiles
-show a large drop with F=1 (i.e. no FPs or FNs) at very clear boundaries.
-Mature enzyme sequence correlates with leader, and appear to also with target
-compartment. From the 147, 127 unique mature sequences were used to make HMM
-profiles for mature sequences.
-
-Figure~\ref{fig:tree}
-
-IQtree of mature enzyme sequence (3 AA of PF00081 to 100 AA of PF02777) forms
-4 clades, with sp\_cnidaria being paraphyletic, the rest are monophyletic, hard
-to assign metals from this as sequence similarity may not correspond to metal
-preference. This establishes that
-
-additional 37 reference sequeces, 123 unique mature sequences total 160.
-clustered at 0.98 sequence similiarty to reduce down to 110. for tree
-generation.
-
-Completeness
-
-Generated 202 K04564 matches from our genomic and RNAse datasets, reduced down
-to 114 unique mature enzyme sequences that possess all key residues and spans
-from 3rd AA of PF00081 to 100 AA of PF02777, so removing any partial matches
-due to bad genome assemblies or truncated gene models.  
-
-this is all\_k04564\_matches\_mature\_region.faa and the .tsv file
-
-12 out of 144 fell below the above mature profile thresholds, rest belong to one of the 4 clades
-
-4 are similar to or is CAE7459428.1 and is just below the threshold for
-sp\_ctp\_algae; CAE7459428.1 would have been a hit for sp\_ctp\_algae if its SP
-signal was stronger.
-
-8/144, or 6%, unknown
-
-Present: Final HMM profile for each group, with threshold scores for full
-protein and probably mature proteins, and rules
+To test if there are other undiscovered SOD2 protein groups, 114 unique mature
+protein sequences were selected from all the genomic and RNAseq sequences that
+matched to the K04564 HMM profile, without checking for plausible start codons,
+types of leader sequences, and targeted cellular compartment. These 114
+sequences were then scored against the HMM profiles from the four groups. All
+but 12 sequences scored above the threshold for a HMM profile. Out of the 12
+negatives, 4 are just below the threshold for SP\_cTP\_algae and can be
+considered FNs. The remaining 8, or 7\% are unknown sequences. Thus, the four
+HMM profiles are able to cover 93\% of all K04564 matching sequences in this
+paper's datasets.
 
 
+\subsection*{The four groups of SOD2 proteins form distinct clusters in
+phylogenetic tree, and subclusters within each coral protein group correlate
+with genus}
+
+160 mature SOD2 sequences consisting of the 123 from coral and symbiodinium,
+plus 37 from annotated reference SOD2 proteins from across the tree of life,
+were clustered (98\% sequence similarity) using MMSeqs (\cite{mmseqs2}),
+aligned using MUSCLE, and organized into a phylogenetic tree using IQTree
+(\cite{iqtree}). Figure~\ref{fig:tree} shows the tree as visualized using iTOL
+(\cite{itol}).
+
+XXX clusters by phylogeny
+XXX phylogeny
+XXX missing sp\_cnidaria from some genomes
+XXX also sp\_cnidaria is issing from acropora genomes, which explains why a.
+tenuis transcripts does not have such a sequence.
 
 
+\subsection*{RNAseq data provides expression evidence for all but SP\_algae}
 
-\subsection*{A mitochondrial MnSOD exists across all corals}
-
-In coral hosts, the mitochondrial version of SOD2 includes of a mitochondrial
-transit peptide (mTP) XXX amino acids upstream of N-terminal PF00081 domain,
-and the secreted version includes a signal peptide (SP) XXX amino acids
-upstream of PF00081. These two classes are termed mt\_cnidaria and sp\_cnidaria,
-respectively.
-
-High mature sequence similiarty. HMM scores. Very likely Mn.
-
-What about Mt? Likely different across species? Or also conserved?
-
-
-\subsection*{Evidence of a screted SOD2, with unknown metal preference, shown
-in the genome and transcriptome of some coral species}
-
-Paraphyletic, evolutionary lineage tree forms clusters by type: sea anemone,
-stony, soft.
-
-Transcript counts from one RNAseq experiment
-
-Missing from acropora genomes, which explains why a. tenuis transcripts does
-not have such a sequence.
-
-Just one study. But uncertain if it's linked to this.
-
-
-\subsection*{A likely chloroplast targeting SOD2 protein, with a bipartite
-leader, is conserved across multiple species of symbiodinium}
-
-In algae, the chloroplast targeting version of SOD2 includes a bipartite
-leader. DeepLoc 2.1 consistently finds a SP leader XXX amino acids upstream of
-PF00081, and also consistently categorizes the SP-cleaved copies of the
-proteins as localized to plastid. DeepLoc employs different mechanisms (or
-"heads" in their ML architecture) for classifying localization and finding
-leader sequences, and was not trained on symbiodiniums. The SP cleavage point
-sits XXX amino acids upstream of PF00081, suggesting a bipartite leader
-architecture of XXX AAs of SP, YYY AAs of cTP, then PF00081. This class is
-termed sp\_ctp\_algae, in figures and tables in this paper.
-
-Separately, a secreted version of SOD2 with only a SP, XXX amino acids upstream
-of PF00081, also exist in algae. This class is termed sp\_algae.
-
-
-\subsection*{A fourth class of SOD2, with distinct mature protein sequence, may
-exist in symbiodinium, with weak expression evidence}
-
-May be secreted? Transcript counts from one RNAseq experiment suggest very weak
-if any expression.
-
-
+XXX tx counts from PM34
+XXX sp\_algae may not express? but RNAseq data cannot confirm these because
+most are single timepoint and condition
 

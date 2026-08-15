@@ -1,21 +1,8 @@
 
 \section*{Discussion}
 
-\begin{itemize}
-	\item Lorem ipsum dolor sit amet
-	\item consectetur adipiscing elit.
-	\item Aliquam dignissim blandit est, in dictum tortor gravida eget. In ac rutrum magna.
-\end{itemize}
 
-
-** In silico is not the same as biological validation; Lack of wet lab evidence is a weakness of this paper
-
-Does RNA seq data present evidence for expression? Weakness of that argument.
-But, single time point, single stresser.
-
-Uncertain if sp_algae is expressed or where it may go to.
-
-** Unknown metal specificity
+\subsection*{Unverified metal specificity}
 
 Metal specificity is a spectrum, not a binary: there are Mn-specific,
 Fe-specific, and cambialistic SODs that work with either ion, and the modern
@@ -24,73 +11,17 @@ the active-site metal, and several non-conserved second-sphere residues
 contribute to that tuning; consequently prediction methods based solely on
 primary sequence have not given strong predictive values. There are documented
 sequence/metal mismatches — e.g. the Sinorhizobium meliloti SOD has an
-iron-type sequence but preferentially incorporates Mn in vivo. The mechanistic
-anchor most methods lean on is the position of the solvent-coordinating
-glutamine (α2-helix in typical FeSODs vs the C-terminal end of β2 in most
-MnSODs), but site-directed swaps show this is not the only determinant of metal
-selection. There is a model - SODa - but not super predictive. The lineage of
-this work: Parker & Blake (1988) first showed Fe- and Mn-SODs can be
-distinguished by primary structure; Wintjens et al. (2004, JBC) and Wintjens,
-Gilis & Rooman (2008, Proteins) formalized the fingerprints. A simpler,
-hand-usable heuristic also exists — cyanobacterial SODs can be split by a
-three-trait key, e.g. a signature where FeSOD's F184/A188/Q189…T280…F/Y303 is
-replaced in MnSOD by R184/G188/G189…G280…W303 (positions are
-cyanobacteria-specific).
-
-The metal is set by the active-site environment of the protein, and
-localization is set by the presequence — two independent properties.
-Localization cannot pin the functional metal at all in the ambiguous cases.
-
-Mn supplementation may be good https://www.nature.com/articles/s41598-018-34994-4
-
-Mn dependence https://journals.plos.org/climate/article?id=10.1371/journal.pclm.0000897
-
-Discusses Mt/S and Chloroplast versions in algae, but they took annotations
-from published sources and presented alignments assuming those annotations were
-correct. They noticed bigger differences between their MnSOD3 group with other
-groups. This is because their MnSOD3 is in fact a SP targeting one, while their
-MnSOD1 and MnSOD2 groups are actually our sp_cpt groups.
-
-Encoded protein sequence length within each MnSOD isoform was similar across
-clades (within 1–9 aa of each other), but absolute length between isoforms
-varied by up to 19% (e.g., SymMnSOD3 vs. SymMnSOD2). Mean pairwise protein
-identities across clades were highest for SymFeSOD (96% ± 2%; mean ± SD),
-SymMnSOD1 (94% ± 2%), and SymMnSOD2 (90% ± 3%), with near identical amino acid
-sequences (96-97%) for MnSOD1 within clade C (C1, C3, C15) (Figure 1,
-Additional file 1). The predicted tertiary monomer structure of SymMnSOD1 from
-Symbiodinium B1 and C1 was also highly similar (Figure 2).
-
-C15_M_digitata_SymMnSOD1_KJ6 -            265 sp_ctp_MnFeSOD_algae_mature -            193  1.8e-140  456.0   2.3   1   1  2.2e-140  2.2e-140  455.7   2.3     1   193    58   250    58   250 1.00 -
-C3_Mp_SymMnSOD1_KJ672520     -            265 sp_ctp_MnFeSOD_algae_mature -            193  1.9e-140  455.9   2.0   1   1  2.3e-140  2.3e-140  455.7   2.0     1   193    58   250    58   250 1.00 -
-D_A_hyacinthus_SymMnSOD2_GAF -            294 sp_ctp_MnFeSOD_algae_mature -            193  4.1e-140  454.8   2.1   1   1  5.1e-140  5.1e-140  454.5   2.1     1   193    55   247    55   247 1.00 -
-F1_CCMP2468_SymMnSOD2_Assemb -            297 sp_ctp_MnFeSOD_algae_mature -            193  4.6e-140  454.6   2.1   1   1  5.8e-140  5.8e-140  454.3   2.1     1   193    58   250    58   250 1.00 -
-B1_Mf1_05b_SymMnSOD2_Assembl -            299 sp_ctp_MnFeSOD_algae_mature -            193  6.2e-140  454.2   1.9   1   1  7.8e-140  7.8e-140  453.9   1.9     1   193    58   250    58   250 1.00 -
-B1_Mf1_05b_SymMnSOD2_rep_c13 -            303 sp_ctp_MnFeSOD_algae_mature -            193  6.5e-140  454.2   1.9   1   1  8.1e-140  8.1e-140  453.9   1.9     1   193    58   250    58   250 1.00 -
-C1_CCMP2466_SymMnSOD1_AHI543 -            263 sp_ctp_MnFeSOD_algae_mature -            193  1.3e-138  449.9   1.9   1   1  1.5e-138  1.5e-138  449.7   1.9     1   193    56   248    56   248 1.00 -
-B1_Ap1_SymMnSOD1_KJ672521    -            261 sp_ctp_MnFeSOD_algae_mature -            193  5.7e-138  447.8   2.4   1   1  6.7e-138  6.7e-138  447.6   2.4     1   193    58   250    58   250 1.00 -
-A1_Casskb8_MnSOD__c18645     -            281 sp_ctp_MnFeSOD_algae_mature -            193    6e-138  447.8   2.1   1   1  7.3e-138  7.3e-138  447.5   2.1     1   193    61   253    61   253 1.00 -
-B1_Mf1_05b_SymMnSOD1_Assembl -            265 sp_ctp_MnFeSOD_algae_mature -            193  1.2e-137  446.8   2.2   1   1  1.4e-137  1.4e-137  446.5   2.2     1   193    58   250    58   250 1.00 -
-A1_Casskb8_MnSOD_rep_c710    -            270 sp_ctp_MnFeSOD_algae_mature -            193  1.1e-136  443.7   1.3   1   1  1.3e-136  1.3e-136  443.4   1.3     1   193    63   255    63   255 1.00 -
-A1_CCMP2467_MnSOD_Assembly1  -            193 sp_ctp_MnFeSOD_algae_mature -            193   9.3e-91  293.8   0.8   1   1   1.1e-90   1.1e-90  293.5   0.8     1   133    61   193    61   193 1.00 -
-A1_CCMP2467_MnSOD_Assembly4  -            189 sp_ctp_MnFeSOD_algae_mature -            193   1.2e-86  280.3   0.8   1   1   1.5e-86   1.5e-86  280.1   0.8     1   127    63   189    63   189 1.00 -
-A1_Casskb8_SymMnSOD3_rep_c41 -            246 sp_ctp_MnFeSOD_algae_mature -            193   4.3e-74  239.4   0.6   1   1   5.1e-74   5.1e-74  239.1   0.6     2   193    24   219    23   219 0.93 -
-D_A_hyacinthus_SymMnSOD3_GAF -            247 sp_ctp_MnFeSOD_algae_mature -            193   7.6e-70  225.5   0.2   1   1     9e-70     9e-70  225.3   0.2     2   193    25   220    24   220 0.94 -
-C3_A_aspera_SymMnSOD1_FE8660 -            105 sp_ctp_MnFeSOD_algae_mature -            193     6e-65  209.6   2.6   1   1   6.8e-65   6.8e-65  209.4   2.6   104   193     1    90     1    90 1.00 -
-A_PF_2005_SymFeSOD_AY916504  -            201 sp_ctp_MnFeSOD_algae_mature -            193     2e-53  171.9   1.3   1   1   2.4e-53   2.4e-53  171.7   1.3     1   191     4   191     4   193 0.91 -
-A1_CCMP2467_MnSOD_Assembly3  -             80 sp_ctp_MnFeSOD_algae_mature -            193   5.9e-45  144.3   0.9   1   1   6.7e-45   6.7e-45  144.1   0.9   129   193     1    65     1    65 0.99 -
-E_CCMP421_SymFeSOD_KJ672517  -            149 sp_ctp_MnFeSOD_algae_mature -            193   3.9e-42  135.1   1.9   1   1   4.4e-42   4.4e-42  134.9   1.9    22   174     1   149     1   149 0.90 -
-A1_CCMP2467_SymMnSOD3_Assemb -            173 sp_ctp_MnFeSOD_algae_mature -            193   1.7e-39  126.5  14.1   1   2   2.3e-38   2.3e-38  122.8  10.7     2   148    24   156    23   160 0.93 -
-A1_CCMP2467_SymMnSOD3_Assemb -            173 sp_ctp_MnFeSOD_algae_mature -            193   1.7e-39  126.5  14.1   2   2     0.083     0.083    3.5   1.1   181   193   152   164   151   164 0.88 -
-B1_Ap1_SymFeSOD_KJ672519     -            148 sp_ctp_MnFeSOD_algae_mature -            193   3.7e-38  122.1   0.9   1   1   4.4e-38   4.4e-38  121.9   0.9     7   149     1   143     1   147 0.90 -
-B1_Mf1_05b_MnSOD__c29099     -            148 sp_ctp_MnFeSOD_algae_mature -            193   2.2e-37  119.6   0.2   1   1   2.6e-37   2.6e-37  119.4   0.2     2   124    20   147    19   148 0.93 -
-F1_Mv_SymFeSOD_KJ672518      -            132 sp_ctp_MnFeSOD_algae_mature -            193   5.7e-35  111.7   1.5   1   1   6.2e-35   6.2e-35  111.6   1.5    20   149     2   131     1   132 0.90 -
-A1_CCMP2467_SymMnSOD3_Assemb -             86 sp_ctp_MnFeSOD_algae_mature -            193   2.2e-27   87.0   0.3   1   1   2.6e-27   2.6e-27   86.7   0.3   137   193     1    59     1    59 0.94 -
-B1_Mf1_05b_SymMnSOD3__c19510 -             86 sp_ctp_MnFeSOD_algae_mature -            193   2.2e-27   87.0   0.3   1   1   2.6e-27   2.6e-27   86.7   0.3   137   193     1    59     1    59 0.94 -
-A1_Casskb8_SymMnSOD3_rep_c41 -            246 sp_MnFeSOD_algae_mature -            197  5.8e-133  431.3   2.4   1   1  6.7e-133  6.7e-133  431.1   2.4     1   197    23   219    23   219 1.00 -
-D_A_hyacinthus_SymMnSOD3_GAF -            247 sp_MnFeSOD_algae_mature -            197  2.7e-131  425.9   0.6   1   1  3.2e-131  3.2e-131  425.7   0.6     1   197    24   220    24   220 1.00 -
+iron-type sequence but preferentially incorporates Mn in vivo. 
 
 
-** Localization
+\subsection*{Unverified location}
+
+Even though HMM profile scores correlate with leader, we don't actually know
+the exact location.
+
+Mt likely
+SP\_cTP may be
+SP not sure, cite Hydra paper
 
 We checked how DeepLoc and SignalIP would call alveolata proteins that
 Should be mitochondria, using K00235 as control: DeepLoc detected mTP.  Should
@@ -106,49 +37,25 @@ very small here, as many of the sequences are essentially the same 3 protein
 sequences. To make this publishable we should look for different plastid
 targeted sequences and hope to observe the same behavior from DeepLoc.
 
-** HMM profiles pan metagenomic or family specific
 
-Because K04564 encapsulates the entire Fe-Mn SOD family across all domains of
-life (Bacteria, Archaea, and Eukaryota) [Source: KEGG Orthology K04564], a high
-bit-score threshold (e.g., >150) would optimize precision for eukaryotic
-sequences but drastically collapse the recall rate for highly divergent
-bacterial or archaeal orthologs. The optimization algorithm drove the threshold
-down to 41.53 to maintain functional annotation capacity across highly diverse
-phyla.
+\subsection*{Disagreement with prior grouping}
 
-In an ancient, universally distributed enzyme like MnSOD, large stretches of
-the ~200 amino acid sequence (such as surface-exposed loop regions and variable
-structural linkers) exhibit extreme sequence divergence across species. In the
-pHMM, these hypervariable positions have high entropy, dropping their bit-score
-contribution to near zero. Only the rigid structural core—specifically the
-N-terminal alpha-hairpin domain, the C-terminal alpha/beta domain, and the 4
-metal-coordinating catalytic nodes (His-50, His-98, Asp-183,
-His-187)—contribute highly positive bits. A truly orthologous but highly
-divergent sequence will only accumulate score points at these narrow, invariant
-motifs, resulting in a low overall sequence bit score that still represents a
-true positive.
+Krueger et al.
 
-E.g. even in Alveolata, can have quite different sequences, so profiles may
-need different thresholds. Hard to quantify though if they are differentiating.
-
-Using HMM profiles with rules to check for leaders and key residues. Profiles
-give you a fast first screen, and then the key residues make sure they are
-catalytically functional. Leaders verify full length proteins. Mature HMM gives
-you a quick way to see what class a sequence may be w/o detecting a leader
-which could be challenging esp in algae.
-
-** Considerations for RNAseq analysis
-
-In addition to more specific HMM profiles to match to, there is the issue of
-sequencing holobiont and then doing capture or removal
-
-** Continuing work of curating proteins
-
-n is small, as we get more data, the profiles get better and new profiles
-likely emerge. We are also interested in taking the approach to other proteins
-and protein families.
-
-Gene model is difficult, needs more RNAseq data, AUGUSTUS modifications do not
-work. HMM of the mature protein is useful for global HMM search.
+Discusses Mt/S and Chloroplast versions in algae, but they took annotations
+from published sources and presented alignments assuming those annotations were
+correct. They noticed bigger differences between their MnSOD3 group with other
+groups. This is because their MnSOD3 is in fact a SP targeting one, while their
+MnSOD1 and MnSOD2 groups are actually our sp\_cpt groups. E.g. several SymMnSOD1
+and SymMnSOD2 scored above 442 for SP\_cTP\_algae, while two SymMnSOD3
+sequences scored above 400 for SP\_algae.
 
 
+\subsection*{HMM profiles pan metagenomic or family specific}
+
+K04564 is pan genomic, threshold scores are low because only a few key residues
+are conserved. The optimization algorithm drove the threshold down to 41.53 to
+maintain functional annotation capacity across highly diverse phyla.
+
+Our profiles can be more specific. Threshold scores can change as we add more
+sequences. Mature HMMs predict location.

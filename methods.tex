@@ -85,9 +85,10 @@ The phylogenetic tree constructed by IQTree \cite{iqtree} is available at
 
 \subsection*{Alignment and HMM profile construction}
 
-Multi-sequence alignments of mature sequences were constructed using MUSCLE
-\cite{muscle} after removing duplicate sequences. HMM profiles were constructed
-using \texttt{hmmbuild} \cite{eddy2011hmmer} from the alignments.
+Multi-sequence alignments of mature sequences, without the leader sequence and
+bounded by PF00081 and PF02777, were constructed using MUSCLE \cite{muscle}
+after removing duplicate sequences. HMM profiles were constructed using
+\texttt{hmmbuild} \cite{eddy2011hmmer} from the alignments.
 
 The four HMM profiles as well as the FASTA files used to construct each profile
 are available at

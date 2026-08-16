@@ -15,7 +15,9 @@ Additional inspection using DeepLoc, on the SP and Golgi apparatus sequences,
 reveals that once the SP is cleaved, DeepLoc predicts the remaining sequence as
 plastid bound. This observation is consistent with general consensus of
 bipartite leader architecture for chloroplast-targeting proteins in cells that
-have gone through secondary endosymbiosis \cite{mcfadden1999plantbio}.
+have gone through secondary endosymbiosis \cite{mcfadden1999plantbio}; proteins
+are first shuttled into the secretory pathway, through the Golgi apparatus,
+before reaching the plastid.
 
 Based on these observations, leader discovery algorithm was adjusted to
 specifically look for start sites in these ranges, and the full-length SOD2
@@ -27,6 +29,10 @@ called features. Table~\ref{tab:class_breakdown} shows the breakdown by group.
 Figure~\ref{fig:taxa} shows breakdown by taxonomy -- the first columns on the
 left are transcriptomic sequences, then the rest of the columns are grouped by
 taxonomy of the genomic sequences.
+
+A few genomes/species have high HMM scores but lack an expected DeepLoc
+prediction; these are likely false negatives due to DeepLoc being unable to
+predict a required leader type and/or compartment.
 
 \begin{table}
   \caption{Breakdown of full-length SOD2 sequences}
@@ -85,7 +91,8 @@ To test if there are other undiscovered SOD2 protein groups, 114 unique mature
 protein sequences were selected from all the genomic and RNAseq sequences that
 matched to the K04564 HMM profile, without checking for plausible start codons,
 types of leader sequences, and targeted cellular compartment. These 114
-sequences were then scored against the HMM profiles from the four groups. 102
+sequences were then scored against the mature protein HMM profiles, with no
+consideration for presence or type of leaders, from the four groups. 102
 sequences, or 90\%, scored above the threshold for an HMM profile. Out of the
 12 negatives, 4 are just below the threshold for SP\_cTP\_algae and can be
 considered FNs. Thus 106 sequences, 93\% of all K04564 matching sequences, can

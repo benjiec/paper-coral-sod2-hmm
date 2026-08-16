@@ -55,12 +55,13 @@ seed protein sequence comes from RNAseq data, start codon searching only occurs
 in the TransDecoder generated protein sequence. If the seed protein sequence
 comes from an NCBI protein file, with an associated genome GFF file, start codon
 searching takes predicted exons from the GFF file into consideration. If the
-seed protein sequence comes from de novo HMM search (see above), start codon
-searching starts in frame with the anchor and looks upstream until hitting a
-prior stop codon. Leader discovery in this last context is challenging and may
-not find the correct start codon if the leader transcript was spliced together.
+seed protein sequence comes from \textit{de novo} HMM search (see above), start
+codon discovery begins in frame with the anchor and looks upstream until
+hitting a prior stop codon. Leader discovery in this last context is
+challenging and may not find the correct start codon if the leader transcript
+was spliced together.
 
-This paper chose to not use the patch to AUGUSTUS, available at
+This paper chose not to use the patch to AUGUSTUS, available at
 \url{http://smic.reefgenomics.org/download/}, because the patch assumes the
 sequence motif frequencies around each of the three DSS sites are independent
 of the DSS motif itself. Through inspection of likely DSS sites from several

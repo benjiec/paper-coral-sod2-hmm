@@ -13,15 +13,13 @@ A manifest that lists the genome accession is at
 \subsection*{Protein sequences from NCBI genomes}
 
 Genomic sequences and protein sequences (if available) from 35 coral genomes
-and 10 symbiodinium genomes were downloaded from NCBI Genome database.
-\textit{De novo} protein detection were also conducted on many of the genomes,
-by searching 6-frame translations of the entire genome for hits against the
-entire KEGG KO HMM database \cite{kofam}, using \texttt{hmmscan}
-\cite{eddy2011hmmer}.
+and 10 Symbiodinium genomes were downloaded from NCBI Genome database.
+\textit{De novo} protein detection was also conducted on many of the genomes,
+by searching the full genomic 6-frame translations for hits against the entire
+KEGG KO HMM database \cite{kofam}, using \texttt{hmmscan} \cite{eddy2011hmmer}.
 
 The \textit{de novo} searching program is available at
-\url{https://github.com/benjiec/tangle-needle} and program to assign proteins
-to KO numbers is at \url{https://github.com/benjiec/tangle-heap}.
+\url{https://github.com/benjiec/tangle-needle}.
 
 
 \subsection*{Protein sequences from RNAseq data and transcript counts}
@@ -40,7 +38,7 @@ protein groups are available at
 
 K04564 matching protein sequences were filtered to remove those that do not
 contain both PF00081 and PF02777, and those that do not possess key residues
-that form the metal binding pocket. A rule based filtering program was used.
+that form the metal-binding pocket. A rule-based filtering program was used.
 The code for the program is available at
 \url{https://github.com/benjiec/tangle-sieve}. The specific rule used for
 each protein group is available at
@@ -52,26 +50,26 @@ each protein group is available at
 Source code for leader discovery is available at
 \url{https://github.com/benjiec/tangle-sieve}.  Start codons upstream and at
 a specified distance from an anchor (e.g. where PF00081 aligns to a seed
-protein sequence) are used as the start of a full length SOD2 sequence. If the
+protein sequence) are used as the start of a full-length SOD2 sequence. If the
 seed protein sequence comes from RNAseq data, start codon searching only occurs
 in the TransDecoder generated protein sequence. If the seed protein sequence
-comes from a NCBI protein file, with an associated genome GFF file, start codon
+comes from an NCBI protein file, with an associated genome GFF file, start codon
 searching takes predicted exons from the GFF file into consideration. If the
 seed protein sequence comes from de novo HMM search (see above), start codon
 searching starts in frame with the anchor and looks upstream until hitting a
 prior stop codon. Leader discovery in this last context is challenging and may
 not find the correct start codon if the leader transcript was spliced together.
 
-This paper choose to not use the patch to AUGUSTUS, available at
-\url{http://smic.reefgenomics.org/download/}, because that patch assumes the
-sequence motif frequency around each of the three DSS sites is independent of
-the DSS sequence itself. Through inspection of likely DSS sites from several
-symbiodinium genomes, that assumption does not appear to be valid.
+This paper chose to not use the patch to AUGUSTUS, available at
+\url{http://smic.reefgenomics.org/download/}, because the patch assumes the
+sequence motif frequencies around each of the three DSS sites are independent
+of the DSS motif itself. Through inspection of likely DSS sites from several
+Symbiodinium genomes, that assumption does not appear to be valid.
 
 
-\subsection*{Full length and mature SOD2 sequences}
+\subsection*{Full-length and mature SOD2 sequences}
 
-147 full length sequences are available at
+147 full-length sequences are available at
 \url{https://github.com/benjiec/paper-coral-sod2-hmm/blob/main/data/full_length.faa}.
 The mature portions of the sequence, bounded by 3rd AA of PF00081 and 100th AA
 of PF02777, inclusively, are available at

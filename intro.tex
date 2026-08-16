@@ -5,33 +5,33 @@ SOD2 proteins protect cells against oxidative damage by converting toxic
 superoxide radicals into hydrogen peroxide and diatomic oxygen. SOD2 proteins
 can bind either manganese (MnSOD) or iron (FeSOD) as co-factors; their
 structure consists of conserved residues His26, His74, Asp159, and His163
-(human sequence coordinates) forming the anchors of a trigonal bypyramidal
-metal pocket and variations in the outer shell, based on bound metal, to ensure
-superoxide dismutase activity \cite{perry2010bbapap}. SOD2 is present
-throughout tree of life, with bacterial SOD2 often preferring Fe as cofactor,
-mammalian SOD2 almost always requires Mn as a cofactor to function in
-mitochondria, and metal preference not always phylogenetically constrained
-\cite{sendra2023nee}.
+(human sequence coordinates) forming the anchors of a bipyramidal metal pocket
+and variations in the outer shell, based on bound metal, to ensure superoxide
+dismutase activity \cite{perry2010bbapap}. SOD2 is present throughout the tree
+of life, with bacterial SOD2 often preferring Fe as cofactor, mammalian SOD2
+almost always requires Mn as a cofactor to function in mitochondria, and metal
+preference is not always phylogenetically constrained \cite{sendra2023nee}.
 
 Existing literature is vague on the types of SOD2 proteins in coral hosts and
 their symbiotic algae. While there is consensus on the presence of
 mitochondrial MnSOD in corals, other forms of SOD2 in coral and symbiotic algae
-are rarely discussed/analyzed separately. \cite{saragosti2010plosone} reports
-experimental evidence for secreted superoxide dismutase activity in
-\textit{Stylophora pistillata} without identifying the source of such activity.
-\cite{dash2007gene} experimentally identifies two forms of MnSOD in
-\textit{Hydra vulgaris}, a non-coral species in the cnidaria phylum.
-\cite{krueger2015eb} computationally compares various annotated MnSOD and FeSOD
-sequences from various symbiodinium species, with grouping of sequences, based
-on putative annotation, inconsistent with findings of this paper. Indeed, most
-transcriptomic analyses in the field depend on blasting against UniProt or
-NCBI, or matching against the HMM profile K04564, a pan-metagenomic KEGG
-ortholog (\cite{kegg}) for SOD2. Neither approacher provide resolution beyond
-putative superoxide dismutase activity.
+are rarely discussed/analyzed separately. Saragosti et al.
+\cite{saragosti2010plosone} report experimental evidence for secreted
+superoxide dismutase activity in \textit{Stylophora pistillata} without
+identifying the source of such activity.  Dash et al. \cite{dash2007gene}
+experimentally identify two forms of MnSOD in \textit{Hydra vulgaris}, a
+non-coral species in the Cnidaria phylum.  \cite{krueger2015eb} computationally
+compares various annotated MnSOD and FeSOD sequences from various Symbiodinium
+species, with the grouping of sequences, based on putative annotation,
+inconsistent with findings of this paper. Indeed, most transcriptomic analyses
+in the field depend on blasting against UniProt or NCBI, or matching against
+the HMM profile K04564, a pan-metagenomic KEGG ortholog (\cite{kegg}) for SOD2.
+Neither approach provides resolution beyond putative superoxide dismutase
+activity.
 
 This paper presents results from a computational search and grouping of SOD2
 protein sequences, using NCBI deposited genome sequences from 35 coral and 10
-symbiodinium species, as well as RNAseq datasets from 5 papers. The goal of
+Symbiodinium species, as well as RNAseq datasets from 5 papers. The goal of
 this work is to present specific and unambiguous sequence-level profiles for
 SOD2 proteins in \textit{Anthozoa} and \textit{Dinophyceae}. Although these
 protein groups have features that are suggestive of biological and biochemical
@@ -42,16 +42,16 @@ or likely cellular location.
 
 Specifically, a protein sequence database was constructed from a) protein
 sequences submitted to and associated with NCBI genome accessions, b) protein
-sequences exhaustively detected using 25k+ KO HMM profiles (\cite{kegg}) on
+sequences exhaustively detected using 25k+ KO HMM profiles \cite{kegg} on
 6-frame translations of genomic sequences submitted to and associated with NCBI
 genome accessions, and c) protein sequences generated from transcriptomes from
 5 published RNAseq studies. 210 seed sequences meeting the K04564 HMM profile
-minimum threshold (\cite{kofam}) were selected from this sequence database.
+minimum threshold \cite{kofam} were selected from this sequence database.
 
 Seed sequences were further filtered to those containing PF00081 and PF02777
 Pfam FeSOD N and C-terminal domains, using Pfam's gathering score
-(\cite{pfam}), and having four key metal binding pocket residues
-(\cite{perry2010bbapap}). A \textit{mature protein sequence} between
+\cite{pfam}, and having four key metal-binding pocket residues
+\cite{perry2010bbapap}. A \textit{mature protein sequence} between
 (inclusive) the 3rd AA of PF00081 and 100th AA of PF02777 was extracted for
 each remaining seed sequence.
 
@@ -59,25 +59,25 @@ A leader discovery algorithm was employed to look for, in predicted exons if
 protein sequence was obtained through a gene model (above (a)) or in upstream
 3-frame translations (above (b)) or in the protein sequence (above (c)),
 possible start codons upstream of each mature protein sequence. This algorithm
-produced zero (if no suitable start codon was found) or more full length SOD2
+produced zero (if no suitable start codon was found) or more full-length SOD2
 sequences for each mature sequence. This leader discovery step typically found
 predicted start sites for coral hosts, but was instrumental in finding complete
-SOD2 sequences in symbiotic algae genomic and transcriptomic data; tandom
-transcription (\cite{zhang2007microb}) and alternative splicing sites
-(\cite{gyoja2013currentbio}) make gene prediction in dinoflagellates difficult
-otherwise. More on all of these in the Methods section below.
+SOD2 sequences in symbiotic algae genomic and transcriptomic data; tandem
+transcription \cite{zhang2007microb} and alternative splicing sites
+\cite{gyoja2013currentbio} make gene prediction in dinoflagellates difficult
+otherwise.
 
-DeepLoc 2.1 (\cite{deeploc21}) was used to determine possible target cellular
-compartment and leader type of each full length SOD2 sequence. MUSCLE
-multi-sequence alignments (\cite{muscle}) was used to group mature protein
+DeepLoc 2.1 \cite{deeploc21} was used to determine possible target cellular
+compartment and leader type of each full-length SOD2 sequence. MUSCLE
+multi-sequence alignments \cite{muscle} were used to group mature protein
 sequences.
 
 Five RNAseq studies are included in this work. Table~\ref{tab:rnapapers} lists
-the papers and the dataset each contributes. RNAseq data provides further
+the papers and the dataset each contributes. RNAseq data provide further
 evidence for expression, and works around the complex splicing machinery in
-symbiodinium. In some cases, raw reads from the original paper were obtained
-from NCBI and assembled using Trinity (\cite{trinity}) into a transcriptome,
-and TransDecoder (\cite{trinity}) was used to generate protein sequences.
+Symbiodinium. In some cases, raw reads from the original paper were obtained
+from NCBI and assembled using Trinity \cite{trinity} into a transcriptome,
+and TransDecoder \cite{trinity} was used to generate protein sequences.
 
 \begin{table}
   \caption{RNAseq sequences used in this paper}

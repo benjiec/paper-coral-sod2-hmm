@@ -1,36 +1,35 @@
 
 \section*{Results}
 
-Manual inspection of DeepLoc 2.1 results over full length SOD2 sequences
+Manual inspection of DeepLoc 2.1 results over full-length SOD2 sequences
 suggests the presence of three patterns: a) a mitochondrial transit peptide
 (mTP) between 15 to 35 AAs upstream of PF00081 with sequence location predicted
 to be mitochondria, b) a signal peptide (SP) between 15 to 40 AAs upstream of
 PF00081 with sequence location predicted to be extracellular, and c) a signal
 peptide between 50 and 70 AAs upstream of PF00081 with sequence location
-predicted to be the golgi apparatus. Specifically, the first and last
-predictions were almost exclusively for coral hosts and symbiodiniums,
-respectively, while the middle prediction includes sequences for both hosts and
-symbionts.
+predicted to be the Golgi apparatus. Specifically, the first and last
+predictions were almost exclusively for corals and Symbiodinium, respectively,
+while the middle prediction includes sequences for both hosts and symbionts.
 
-Additional inspection using DeepLoc, on the SP and golgi apparatus sequences,
-reveal that once the SP is cleaved, DeepLoc predicts the remaining sequence as
+Additional inspection using DeepLoc, on the SP and Golgi apparatus sequences,
+reveals that once the SP is cleaved, DeepLoc predicts the remaining sequence as
 plastid bound. This observation is consistent with general consensus of
-bipartite leader architecture for chloroplast targeting proteins in cells that
+bipartite leader architecture for chloroplast-targeting proteins in cells that
 have gone through secondary endosymbiosis \cite{mcfadden1999plantbio}.
 
 Based on these observations, leader discovery algorithm was adjusted to
-specifically look for start sites in these ranges, and the full length SOD2
+specifically look for start sites in these ranges, and the full-length SOD2
 sequences were separated into four groups: mTP in coral, SP in coral,
-SP+golgi in symbiodinium, and SP in symbiodinium. Multi-sequence alignments of
+SP+cTP in Symbiodinium, and SP in Symbiodinium. Multi-sequence alignments of
 mature protein sequences within each bucket showed high degree of conservation.
-Overall, 147 full length SOD2 sequences, 123 unique, exhibited these DeepLoc
+Overall, 147 full-length SOD2 sequences, 123 unique, exhibited these DeepLoc
 called features. Table~\ref{tab:class_breakdown} shows the breakdown by group.
 Figure~\ref{fig:taxa} shows breakdown by taxonomy -- the first columns on the
 left are transcriptomic sequences, then the rest of the columns are grouped by
 taxonomy of the genomic sequences.
 
 \begin{table}
-  \caption{Breakdown of full length SOD2 sequences}
+  \caption{Breakdown of full-length SOD2 sequences}
   \centering
   \begin{tabular}{lllllll}
     \toprule
@@ -51,7 +50,7 @@ taxonomy of the genomic sequences.
 \begin{figure}
   \centering
   \includegraphics[width=0.8\textwidth]{summary_taxa.png}
-  \caption{Orange vertical bars are the numbers of full length SOD2 sequences
+  \caption{Orange vertical bars are the numbers of full-length SOD2 sequences
 	   per species/genome, for each of the four protein groups. Left columns
 	   are sequences from RNAseq studies. Right columns include sequences
            from genomes, grouped by taxonomy. Horizontal marks are the highest HMM
@@ -64,7 +63,7 @@ taxonomy of the genomic sequences.
 \end{figure}
 
 \subsection*{Four groups of SOD2 sequences, two in coral and two in
-symbiodinium, are clearly distinguishable from each other, and covers >90\% of
+Symbiodinium, are clearly distinguishable from each other, and cover >=90\% of
 sequences with SOD2 signature}
 
 \begin{figure}
@@ -74,8 +73,8 @@ sequences with SOD2 signature}
 \label{fig:hmmscores}
 \end{figure}
 
-For each protein group, a HMM profile of the mature protein sequences was
-constructed using hmmer3 (\cite{eddy2011hmmer}). Figure~\ref{fig:hmmscores}
+For each protein group, an HMM profile of the mature protein sequences was
+constructed using hmmer3 \cite{eddy2011hmmer}. Figure~\ref{fig:hmmscores}
 shows that the four HMM profiles are clearly distinguishable; when scoring each
 group against all four profiles, the correct profile, in orange, scores the
 highest, with no overlap with other scores. The lowest score from each set of
@@ -86,12 +85,11 @@ To test if there are other undiscovered SOD2 protein groups, 114 unique mature
 protein sequences were selected from all the genomic and RNAseq sequences that
 matched to the K04564 HMM profile, without checking for plausible start codons,
 types of leader sequences, and targeted cellular compartment. These 114
-sequences were then scored against the HMM profiles from the four groups. All
-but 12 sequences scored above the threshold for a HMM profile. Out of the 12
-negatives, 4 are just below the threshold for SP\_cTP\_algae and can be
-considered FNs. The remaining 8, or 7\% are unknown sequences. Thus, the four
-HMM profiles are able to cover 93\% of all K04564 matching sequences in this
-paper's datasets.
+sequences were then scored against the HMM profiles from the four groups. 102
+sequences, or 90\%, scored above the threshold for an HMM profile. Out of the
+12 negatives, 4 are just below the threshold for SP\_cTP\_algae and can be
+considered FNs. Thus 106 sequences, 93\% of all K04564 matching sequences, can
+be classified by the four HMM profiles.
 
 Interestingly, SP\_cnidaria sequences are missing from all the genomes under
 the \textit{Acroporidae} family. The \textit{Acropora tenuis} RNAseq data from
@@ -100,7 +98,8 @@ the lack of a SP\_cnidaria sequence in that transcriptome. It is unclear if
 this omission in the genome is real, or due to some genome assembly artifact.
 
 
-\subsection*{RNAseq data provides expression evidence for all but SP\_algae}
+\subsection*{RNAseq data provide expression evidence for all groups, with very
+weak expression of SP\_algae}
 
 \begin{figure}
   \centering
@@ -141,15 +140,15 @@ unrooted phylogenetic tree, suggesting independent evolution}
   \label{fig:tree}
 \end{figure}
 
-160 mature SOD2 sequences consisting of the 123 from coral and symbiodinium,
+160 mature SOD2 sequences consisting of the 123 from coral and Symbiodinium,
 plus 37 from annotated reference SOD2 proteins from across the tree of life,
-were clustered (98\% sequence similarity) using MMSeqs (\cite{mmseqs2}),
+were clustered (98\% sequence similarity) using MMSeqs \cite{mmseqs2},
 aligned using MUSCLE, and organized into an unrooted phylogenetic tree using
-IQTree (\cite{iqtree}).
+IQTree \cite{iqtree}.
 
-Figure~\ref{fig:tree} shows the tree as visualized using iTOL (\cite{itol}).
+Figure~\ref{fig:tree} shows the tree as visualized using iTOL \cite{itol}.
 Each of the four protein groups forms an exclusive clade that includes every
 member of the group and shares a unique common ancestor. This tree structure
-suggests these four groups evovled independently, without intermixing with each
+suggests these four groups evolved independently, without intermixing with each
 other. Additionally, the mature protein sequences co-evolved, in lockstep, with
 the localization signals.

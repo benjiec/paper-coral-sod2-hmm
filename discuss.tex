@@ -41,19 +41,18 @@ have been experimentally validated.
 
 The final destination of the SP\_cnidaria, SP\_cTP\_algae, and SP\_algae
 proteins has not been proven experimentally. While there is some evidence for
-secreted SOD2 activity in literature \cite{dash2007gene}
-\cite{saragosti2010plosone}, there is no link, yet, between that activity and
-sequence.
+secreted SOD2 activity in literature \cite{saragosti2010plosone}
+\cite{dash2007gene}, there is no link, yet, between that activity and sequence.
 
 The leader type in these three groups comes from DeepLoc \cite{deeploc21}. To
 sanity check DeepLoc predictions, protein sequences matching K09490, an ER
 chaperone slated for the secretory pathway, and K02639, ferredoxins that
 typically target the chloroplast, were passed to DeepLoc. For K09490 matching
 proteins, DeepLoc reports either a) SP as the leader and ER as the cellular
-compartment, or b) NLS as the leader and Cytoplasm as the target compartment.
-Removing the SP, DeepLoc reports the ER or Cytoplasm as the target compartment
+compartment, or b) NLS as the leader and cytoplasm as the target compartment.
+Removing the SP, DeepLoc reports the ER or cytoplasm as the target compartment
 for the truncated sequences. For K02639 matching sequences, DeepLoc reports SP
 as the leader for some sequences, and Golgi apparatus as the target
-compartment. Removing the SP, DeepLoc reports Plastid as the target compartment
+compartment. Removing the SP, DeepLoc reports plastid as the target compartment
 for the truncated protein sequences. These results indicate that DeepLoc
 predictions for the four SOD2 protein groups are unlikely coincidences.
